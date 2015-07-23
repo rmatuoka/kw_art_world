@@ -1,0 +1,15 @@
+%section.lightbox
+  .container
+    .row
+      .col-md-12
+        .col-md-8
+          %h1=@article.title
+          %span=@article.subtitle
+          
+        .col-md-4.text-right
+          =raw(@article.tag_list.map{ |t| link_to("#"+t, "#", :class => "hashtag")}.join(' '))
+        .col-md-12#content_article
+          =raw(@article.description)
+          %p.text-center
+            =link_to "Fechar", "#", :onclick => "parent.$.fancybox.close();"      
+          

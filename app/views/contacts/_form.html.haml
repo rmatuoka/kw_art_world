@@ -1,0 +1,36 @@
+= form_for (@contact, :html => {:class =>"formularioContato form-horizonta", :role => "form"}, :remote => true) do |f|
+  -if f.error_messages
+    %section.error#error_div
+      .container
+        .row
+          .col-md-1.col-md-offset-3.text-center
+            %h2
+              =image_tag("ico-error.gif")
+          .col-md-5.text-center  
+            =f.error_messages  
+
+  %section.contato
+    .container
+      .row
+        %h1 Entre em contato
+        .form-group
+          .row
+            .col-md-4
+              = f.text_field :name, :id => "nome", :class => "form-control form-cem", :placeholder => "Nome", :type => "text",  :required=> ''   
+            .col-md-4
+              = f.text_field :email, :class => "form-control form-cem", :id => "email", :placeholder => "E-mail", :required => "Email deve ser preenchido", :type => "email"
+            .col-md-4
+              = f.text_field :phone, :class => "form-control form-cem", :id => "telefone", :placeholder => "Telefone", :required => "Telefone deve ser preenchido", :type => "text"
+          .row
+            .col-md-4
+              = f.text_field :business,:id =>"empresa",  :class => "form-control form-cem", :placeholder => "Empresa", :required => "Empresa deve ser preenchido", :type => "text" 
+            .col-md-4
+              = f.text_field :city, :class => "form-control form-cem", :id => "cidade", :placeholder => "Cidade", :required => "Cidade deve ser preenchido", :type => "text"
+            .col-md-4
+              = f.select(:state, ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'], {},{:id=>"estado", :class=>"form-control form-cem"})              
+          .row
+            .col-md-12
+              = f.text_area :message, :class => "form-control", :id => "mensagem", :placeholder => "Mensagem", :required => "Mensagem deve ser preenchida", :type => "text"
+  
+        %p.text-center
+          =image_submit_tag("btn-enviar.jpg")              

@@ -1,0 +1,52 @@
+%section.highlight.hidden-xs
+  .container-fluid
+    .row
+      .cycle-slideshow
+        .show-slide-box
+          =image_tag("bg-contact.jpg", :class => "hidden-xs fixed-highlight")
+          .container.show_text_highlight
+            %p.text-center.text-uppercase.text-highlight CONTATO
+            /%p.text-center.text-highlight.subtitle Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+%section.interna#contact
+  .container-fluid
+    .row
+      .container
+        %p.breadcrumb > Kattios/Contato
+        .col-xs-12.col-md-6
+          .row
+            = form_for (@contact, :html => {:class =>"formularioContato", :role => "form"}, :remote => true) do |f|
+              .col-xs-12
+                .form-group
+                  = f.text_field :name, :id => "nome", :class => "form-control", :placeholder => "Nome", :required => "Nome deve ser preenchido", :type => "text"
+              .col-xs-6
+                .form-group                
+                  = f.text_field :email, :class => "form-control", :id => "email", :placeholder => "E-mail", :required => "Email deve ser preenchido", :type => "text"
+              .col-xs-6
+                .form-group
+                  = f.text_field :phone, :class => "form-control", :id => "telefone", :placeholder => "Telefone", :required => "Telefone deve ser preenchido", :type => "text"
+                .cleafix
+              .col-xs-12
+                .form-group
+                  = f.text_area :message, :class => "form-control", :id => "mensagem", :placeholder => "Mensagem", :required => "Mensagem deve ser preenchida", :type => "text"
+              .col-xs-12
+                .form-group
+                  = f.submit "Enviar", :class => "btn btn-send pull-right"
+              .clearfix
+        .col-xs-12.col-md-5.col-md-offset-1
+          %h1 Kattios Marketing
+          .row
+            .col-xs-12#location
+              %p.first
+                =image_tag("ico-location.png")
+                Avenida Dona Gertrudes, 448 - Alvinópolis - Atibaia / SP.
+              %p
+                =image_tag("ico-phone.png")
+                11 2427.8879
+              %p
+                =image_tag("ico-mail.png")
+                contato@kattios.com.br
+        .clearfix
+%section.interna#map
+  .container-fluid
+    .row
+      %iframe{:frameborder => "0", :height => "210", :src => "https://www.google.com/maps/embed?pb=!1m25!1m8!1m3!1d7338.703694385501!2d-46.56911890750122!3d-23.12081113330995!3m2!1i1024!2i768!4f13.1!4m14!1i0!3e6!4m5!1s0x94cec13c7b276c17%3A0xf2fc82ae42f86914!2sAv.+Don%C3%A1+Gertr%C3%BAdes%2C+448+-+Alvin%C3%B3polis%2C+SP%2C+Brazil!3m2!1d-23.1206037!2d-46.567380799999995!4m5!1s0x94cec13c7b276c17%3A0xf2fc82ae42f86914!2sAv.+Don%C3%A1+Gertr%C3%BAdes%2C+448+-+Alvin%C3%B3polis%2C+SP%2C+Brazil!3m2!1d-23.1206037!2d-46.567380799999995!5e0!3m2!1sen!2sus!4v1427755589068", :style => "border:0", :width => "100%"}

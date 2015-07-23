@@ -1,0 +1,23 @@
+%section.highlight.hidden-xs
+  .container-fluid
+    .row
+      .cycle-slideshow
+        .show-slide-box
+          =image_tag("bg-institucional.jpg", :class => "hidden-xs fixed-highlight")
+          .container.show_text_highlight
+            %p.text-center.text-uppercase.text-highlight Serviços
+            /%p.text-center.text-highlight.subtitle Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+%section.interna#services
+  .container-fluid
+    .row
+      .container
+        %p.breadcrumb 
+          > Kattios/Serviços
+        .col-md-12#show_services
+          -@services.each do |service|
+            %a{:href=> "#{service_path(service.url_slug)}"}
+              .col-md-3.text-center
+                %p.text-center
+                  =image_tag(service.image_service.url("services"))
+                %h3
+                  =service.title

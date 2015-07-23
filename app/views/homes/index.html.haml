@@ -1,0 +1,42 @@
+-content_for :head do
+  =stylesheet_link_tag "home.css"
+  
+%section.highlight.hidden-xs
+  .container-fluid
+    .row
+      .cycle-slideshow{ "data-cycle-pager" => "#adv-custom-pager", "data-cycle-timeout" => "5000", "data-cycle-slides" => "> div"}
+        - @highlights.each do |h|
+          .show-slide-box{"data-cycle-pager-template"=>"<div class='show_thumb_box text-center'><img src='#{h.thumbnail.url}' class='img_thumbnail center-block' /><img src='#{h.thumbnail_shadow.url}' class='img_thumbnail_shadow center-block' /><p>#{h.title}</p><"}
+            -if h.link.blank?
+              =image_tag(h.image_highlight.url, :class => "hidden-xs img-responsive center-block")
+              .container.show_text_highlight
+                %p.text-center.text-uppercase.text-highlight=h.title
+                %p.text-center.text-highlight.subtitle=raw(h.subtitle)
+            -else
+              %a{:href => "#{h.link}", :target=>"_blank"} 
+                =image_tag(h.image_highlight.url, :class => "hidden-xs img-responsive center-block")
+                .container.show_text_highlight
+                  %p.text-center.text-uppercase.text-highlight=h.title
+                  %p.text-center.text-highlight.subtitle=raw(h.subtitle)
+%section.highlight-thumb.hidden-xs
+  .container-fluid
+    .container
+      #adv-custom-pager.row
+          
+    .clear
+
+%section.noticias#noticias
+  .container
+    -if !@articles.blank?    
+      .row
+        .col-md-12#div_article_form
+          = form_tag(search_homes_path(), :class => 'form-search', :id => "form-send_search",:remote => true, :method => 'get') do
+            = text_field_tag :tag, params[:tag], :type => "text", :placeholder => "Digite aqui o que você procura.", :class => "form-control input-busca", :id => "input_search"
+            =# submit_tag "Buscar", :name => nil
+            %input#CleanSearch.button{:type => "button", :value => "Limpar Pesquisa"} 
+        
+      .row.items#show_noticias
+        =render :file => "/homes/_articles.html.haml"
+      .row#paginate
+        = paginate @articles
+  

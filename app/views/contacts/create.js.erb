@@ -1,0 +1,23 @@
+<% if @erro %>
+  $('#div_form').html(" ");
+  $('#div_form').html("<%=escape_javascript(render('form'))%>");  
+  alert("\tOcorreu um erro tente novamente!");
+  $(window).scrollTop($('#error_div').offset().top);
+<% else %>
+  alert("Mensagem enviada com sucesso!");
+  $.fn.clearForm = function() {
+    return this.each(function() {
+      var type = this.type, tag = this.tagName.toLowerCase();
+      if (tag == 'form')
+        return $(':input',this).clearForm();
+      if (type == 'text' || type == 'password' || tag == 'textarea' || type == 'email')
+        this.value = '';
+      else if (type == 'checkbox' || type == 'radio')
+        this.checked = false;
+      else if (tag == 'select')
+        this.selectedIndex = 0;
+    });
+  };
+  //usage
+  $('#new_contact').clearForm();
+<% end %>  
