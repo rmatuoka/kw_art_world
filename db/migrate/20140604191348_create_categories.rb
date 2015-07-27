@@ -5,6 +5,7 @@ class CreateCategories < ActiveRecord::Migration
       t.text :description
       t.boolean :active,:null => false, :default => 1 
       t.boolean :published,:null => false, :default => 1 
+      t.boolean :highlighted
       t.timestamps
     end
   end

@@ -18,7 +18,7 @@ class Admin::ServicesController < ApplicationController
   def create
     @service = Service.new(params[:service])
     if @service.save
-      redirect_to admin_services_url, :notice => "Successfully created service."
+      redirect_to [:admin, @service], :notice => "Successfully created service."
     else
       render :action => 'new'
     end
@@ -31,7 +31,7 @@ class Admin::ServicesController < ApplicationController
   def update
     @service = Service.find(params[:id])
     if @service.update_attributes(params[:service])
-      redirect_to admin_services_url, :notice => "Successfully updated service."
+      redirect_to [:admin, @service], :notice => "Successfully updated service."
     else
       render :action => 'edit'
     end

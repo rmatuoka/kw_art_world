@@ -1,0 +1,29 @@
+%section.content-header
+  %h1
+    Serviços - Galeria
+    %small Painel de Controle
+  %ol.breadcrumb
+    %li
+      %a{:href => "#"}
+        %i.fa.fa-dashboard
+        Home
+    %li.active Serviços
+
+
+/ Main content
+%section.content
+  .row
+    / left column
+    .col-md-12
+      / general form elements
+      .box.box-primary
+        .box-header
+          %h3.box-title 
+            Editar 
+            =@service.title
+        / /.box-header
+        / form start
+
+        = render 'form'
+
+%p= link_to "Back to List", admin_service_service_images_path, :class=>'btn btn-default'

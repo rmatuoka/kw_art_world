@@ -3,6 +3,7 @@ class CreateHighlights < ActiveRecord::Migration
     create_table :highlights do |t|
       t.string :title
       t.string :subtitle
+      t.string :link
       t.datetime :publication_start
       t.datetime :publication_stop
       t.integer :order,:null => false, :default => 0

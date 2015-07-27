@@ -31,18 +31,6 @@
       .form-group
         =image_tag(@highlight.image_highlight.url)
     .form-group
-      = f.label :thumbnail
-      = f.file_field :thumbnail, :class => "form-control"  
-    - if @highlight.thumbnail.file?
-      .form-group
-        =image_tag(@highlight.thumbnail.url)
-    .form-group
-      = f.label :thumbnail_shadow
-      = f.file_field :thumbnail_shadow, :class => "form-control"  
-    - if @highlight.thumbnail_shadow.file?
-      .form-group
-        =image_tag(@highlight.thumbnail_shadow.url)
-    .form-group
       = f.label :link
       = f.text_field :link, :class => "form-control", :placeholder => t("activerecord.attributes.highlight.link")
     

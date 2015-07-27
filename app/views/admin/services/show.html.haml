@@ -1,18 +1,37 @@
-- title "Admin/Service"
-
-%p
-  %strong Title:
-  = @service.title
-%p
-  %strong Active:
-  = @service.active
-%p
-  %strong Published:
-  = @service.published
-
-%p
-  = link_to "Edit", edit_admin_service_path(@service)
-  |
-  = link_to "Destroy", [:admin, @service], :confirm => 'Are you sure?', :method => :delete
-  |
-  = link_to "View All", admin_services_path
+%section.content-header
+  %h1
+    Serviços  
+    %small Painel de Controle
+  %ol.breadcrumb
+    %li
+      %a{:href => "/admin"}
+        %i.fa.fa-dashboard
+        Home
+    %li.active Serviços
+/ Main content
+%section.content   
+  .row
+    / left column
+    .col-md-12
+      / general form elements
+      .box.box-primary
+        .box-header
+          %h3.box-title="#{@service.title}"
+        .box-body
+          %p
+            %strong= "#{t('activerecord.attributes.service.description')}:"
+            %br
+            = @service.description
+        .box-body
+          %p
+            %strong= "#{t('activerecord.attributes.service.published')}:"
+            = show_boolean(@service.published)
+        - if @service.service_img.file?
+          .box-body
+            %p=image_tag(@service.service_img.url)
+        .box-footer
+          %p
+            = link_to t('edit'), edit_admin_service_path(@service), :class => "btn btn-default"
+            = link_to t("back_list"), admin_services_path, :class => "btn btn-default"
+            = link_to t("destroy"), [:admin, @service], :confirm => 'Are you sure?', :method => :delete, :class => "btn btn-danger"            
+            = link_to t("activerecord.models.service_image"), admin_service_service_images_path(@service.id), :class => "btn btn-success"

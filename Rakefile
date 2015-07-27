@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-KwSimpleEcomerce::Application.load_tasks
+KwArtWorld::Application.load_tasks

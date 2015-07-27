@@ -1,9 +1,9 @@
-class CreateServices < ActiveRecord::Migration
+class CreateServiceImages < ActiveRecord::Migration
   def self.up
-    create_table :services do |t|
+    create_table :service_images do |t|
       t.string :title
-      t.text :description
-      t.boolean :highlight,:null => false, :default => 0
+      t.integer :order,:null => false, :default => 1
+      t.integer :service_id
       t.boolean :active,:null => false, :default => 1
       t.boolean :published,:null => false, :default => 1
       t.timestamps
@@ -11,6 +11,6 @@ class CreateServices < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :services
+    drop_table :service_images
   end
 end

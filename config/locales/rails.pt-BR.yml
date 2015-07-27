@@ -224,6 +224,7 @@ pt-BR:
       product: "Produto"
       product_image: "Imagem do Produto"
       product_information: "Informação Técnica do Produto"
+      service_image: "Galeria - Serviços"
     attributes:
       default: &default_name
         id: 'Código'
@@ -275,6 +276,7 @@ pt-BR:
       service:
         <<: *default_name
         image_service: "Imagem do Serviço"
+        highlight: "Destaque"
       product:
         <<: *default_name
         brand: "Marca"

@@ -9,17 +9,25 @@
     .form-group  
       = f.label :title
       = f.text_field :title, :class => "form-control", :placeholder => t("activerecord.attributes.service.title")
+    .form-group  
+      = f.label :description 
+      = f.text_area :description, :class => "form-control", :placeholder => t("activerecord.attributes.service.title")   
+    .form-group
+      = f.label :highlight
+      = f.check_box :highlight
     .form-group
       = f.label :published
       = f.check_box :published     
-
     .form-group
-      = f.label :image_service
-      = f.file_field :image_service, :class => "form-control"  
-    - if @service.image_service.file?
+      %strong Categoria:
+      =f.select(:category_ids, Category.all_published.collect {|category| [ category.title, category.id ] })
+    .form-group
+      = f.label :service_img
+      = f.file_field :service_img, :class => "form-control"  
+    - if @service.service_img.file?
       .form-group
-        =image_tag(@service.image_service.url)
-      
+        =image_tag(@service.service_img.url)
+    
       
   .box-footer
     =f.submit nil, :class => "btn btn-primary"

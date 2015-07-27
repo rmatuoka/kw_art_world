@@ -1,4 +1,4 @@
-KwSimpleEcomerce::Application.routes.draw do    
+KwArtWorld::Application.routes.draw do    
 
   post '/tinymce_assets' => 'tinymce_assets#create'                              
   resources :services, :only => [:index, :show]
@@ -12,22 +12,15 @@ KwSimpleEcomerce::Application.routes.draw do
   
   
   namespace(:admin){
-    resources(:products){
-      resources :product_images
-      resources :product_informations
+    resources (:services){
+      resources :service_images
     }
-    resources :services
     resources :customers
     get 'articles/tags/:tag', :to => 'articles#index', :as => :tag
-    resources :articles 
-    resources :businesses
     resources :contacts, :only => [:index, :show, :destroy]
     resources :highlights
     resources :statics, :only => [:index]
-    resources(:categories){
-      resources :items
-      resources :subcategories
-    }        
+    resources :categories        
     root :to => 'statics#index'
   }
   
