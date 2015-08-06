@@ -1,0 +1,45 @@
+$vermelho:#980101;
+$vermelhoE:#600000;
+$branco:#ffffff;
+$cinzaC:#898989;
+$cinzaE:#666666;
+$cinzaM:#999999;
+$preto:#000000;
+
+section.text
+{
+  margin:100px 0px;
+  
+  h2
+  {
+    color:$cinzaM;
+    font-weight:300;
+    
+    span
+    {
+      font-weight:600;
+      color:$vermelhoE;
+    }
+    
+    span:first-child
+    {
+      color:$vermelho;
+    }
+  }
+}
+
+section.customers
+{
+  margin:60px 0px;
+  
+  .list
+  {
+    border:1px solid $cinzaC;
+    
+    img
+    {
+      margin-top:5px;
+      margin-bottom:10px;
+    }
+  }
+}

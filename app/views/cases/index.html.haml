@@ -1,25 +1,9 @@
--content_for :head do
-  =stylesheet_link_tag "home.css"
-
-%section.highlight
+%section.interna
   .container-fluid
     .row
-      .col-sm-12.background.cycle-slideshow{"data-cycle-fx"=>"scrollHorz"}
-        =image_tag("/assets/banners/padrao.jpg", :class =>"img-responsive")
-        =image_tag("/assets/banners/padrao.jpg", :class =>"img-responsive")
-        =image_tag("/assets/banners/padrao.jpg", :class =>"img-responsive")
-
-
-%section.text
-  .container
-    .row
-      .col-sm-12
-        %h2.text-center
-          NÃO SOMOS SÓ MAIS UMA <span>AGÊNCIA DE COMUNICAÇÃO</span> NO MERCADO
-          PROPOMOS <span>SOLUÇÕES MAIS INTELIGENTES</span> PARA SUA EMPRESA
-          
-= render :file => "layouts/_services_box.html.haml"
-          
+      .container
+        .row
+          %h1 nossos trabalhos
           
 %section.cases
   .container
@@ -29,14 +13,14 @@
         =image_tag("/assets/template/case.jpg", :class => "img-responsive shadow-left")
         %a
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-      
+
       .col-sm-6
         %h3 Colcci Store
         =image_tag("/assets/template/case.jpg", :class => "img-responsive shadow-right")
         %a
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-          
-          
+
+
     .row
       .col-sm-6
         %h3 Única Acabamentos
@@ -49,21 +33,6 @@
         =image_tag("/assets/template/case.jpg", :class => "img-responsive shadow-right")
         %a
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-      
-%section.customers
-  .container
-    .row
-      .col-sm-12.list
-        .row
-          .col-sm-2
-            =image_tag("/assets/clientes/boticario.jpg", :class => "img-responsive")
-          .col-sm-2
-            =image_tag("/assets/clientes/nautilus.jpg", :class => "img-responsive")                
-          .col-sm-2
-            =image_tag("/assets/clientes/colcci.jpg", :class => "img-responsive")
-          .col-sm-2
-            =image_tag("/assets/clientes/vivo.jpg", :class => "img-responsive")
-          .col-sm-2
-            =image_tag("/assets/clientes/volks.jpg", :class => "img-responsive")
-          .col-sm-2
-            =image_tag("/assets/clientes/porto.jpg", :class => "img-responsive")
+
+          
+= render :file => "layouts/_services_box.html.haml"

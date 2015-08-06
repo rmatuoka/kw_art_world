@@ -1,13 +1,10 @@
 class ApplicationController < ActionController::Base
   helper :all
   protect_from_forgery
-  
   helper_method :current_user 
   
   
-  def load_services
-    @services = Service.all_published
-  end
+  
   private
    
     def current_user_session

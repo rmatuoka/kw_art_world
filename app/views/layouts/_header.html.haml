@@ -1,42 +1,74 @@
 %header
   .container
     .row
-      .col-sm-3.col-xs-12.logo
-        =link_to(image_tag("template/logo.png"),root_path())
-      .col-sm-9.hidden-xs.menu.text-right
-        %ul.menu
-          %li
-            =link_to "Institucional", about_us_path(),  :class =>"scroll"
-          %li
-            =link_to "Serviços", services_path, :class =>"scroll"
-            -if @services.count > 0
-              %ul
-                -@services.each do |service|
-                  %li 
-                    =link_to(truncate(service.title, :length => 32, :separator => ' ', :omission => '').html_safe, service_path(service.url_slug))
-          %li
-            =link_to "Clientes", customers_path(), :class =>"scroll"
-          %li
-            =link_to "Contato", new_contact_path(),  :class =>"scroll"
-      %nav.navbar.navbar-default.col-xs-12.visible-xs#minimenu{:role => "navigation"}
-        .container-fluid
-          / Brand and toggle get grouped for better mobile display
+      .col-sm-4
+        %a.sprite.logo{:href=>"/"} ArtWorld
+      .col-sm-8
+        .row
+          .col-sm-9
+            %input.form-control{:type => "text", :placeholder => "Pesquisar por"}
+          .col-sm-3.pull-right
+            %a.sprite.fb-square{:href=>"http://www.facebook.com.br", :target => "_blank"} Facebook
+            %a.sprite.ig-square{:href=>"http://www.facebook.com.br", :target => "_blank"} Instagram
+            %a.sprite.tw-square{:href=>"http://www.facebook.com.br", :target => "_blank"} Twitter
+            
+        .row.header-info
+          .col-sm-9.text-center
+            %p Exemplo:  serviços, materiais, cores, clientes atendidos
+            
+          .col-sm-3.pull-right
+            .sprite.tel-gray
+            %span 11 
+            %span.phone 4412 4455
+        
+%section.menu
+  .container
+    .row
+      .col-xs-3.xs-only.pull-right
+        .container-fluid.menuprincipal
           .navbar-header
-            %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-              %span.sr-only Toggle navigation
+            %button.navbar-toggle{"data-target" => "#menu-principal", "data-toggle" => "collapse", :type => "button"}
               %span.icon-bar
               %span.icon-bar
               %span.icon-bar
-            %a.navbar-brand{:href => "#"} Menu principal
-          / Collect the nav links
-          #bs-example-navbar-collapse-1.collapse.navbar-collapse
+  
+      .col-sm-12.col-xs-12
+        %nav.navbar.menuprincipal.pull-right{:role => "navigation"}
+          #menu-principal.collapse.navbar-collapse
             %ul.nav.navbar-nav
               %li
-                =link_to "Institucional", about_us_path(),  :class =>"scroll"
+                %a{:href => "/"}
+                  %i.glyphicon.glyphicon-home.white
+
               %li
-                =link_to "Serviços", services_path, :class =>"scroll"
+                =link_to("a empresa", "#");
+                %li.dropdown
+                  %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                    Fachadas
+                    %span.caret
+                  %ul.dropdown-menu
+                    %li
+                      %a{:href => "/services/1"} Revestimentos
+                    %li
+                      %a{:href => "#"} Letras em relevo
+                    %li
+                      %a{:href => "#"} corte router
+                    %li
+                      %a{:href => "#"} iluminação
+                    %li
+                      %a{:href => "#"} totem
+
               %li
-                =link_to "Clientes", customers_path(), :class =>"scroll"
+                =link_to("interno", "#");
               %li
-                =link_to "Contato", new_contact_path(),  :class =>"scroll"
-              
+                =link_to("envelopamento", "#");
+              %li
+                =link_to("toldos e coberturas", "#");
+              %li
+                =link_to("feiras e eventos", "#");
+              %li
+                =link_to("mercado", "#");
+              %li
+                =link_to("nossos trabalhos", "/cases");
+              /%li
+              /  =link_to("contato", "#");

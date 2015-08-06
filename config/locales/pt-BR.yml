@@ -1,5 +1,5 @@
 pt-BR:
-  site_name: "Ecommerce Simples"
+  site_name: "ArtWorld"
   admin_site_name: "Art World"
   greeting: "Olá, "
   translation:
@@ -9,7 +9,7 @@ pt-BR:
     choose: "Escolha o idioma"
   
   send: "Enviar"
-  copywrite: "Administrador (C) 2014 - Todos os direitos reservados."
+  copywrite: "Art World (C) 2015 - Todos os direitos reservados."
   
   actions: "Ações"
   show: "Exibir"

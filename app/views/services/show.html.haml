@@ -1,20 +1,33 @@
-%section.highlight.hidden-xs
-  .container-fluid
-    .row
-      .cycle-slideshow
-        .show-slide-box
-          =image_tag("bg-institucional.jpg", :class => "hidden-xs fixed-highlight")
-          .container.show_text_highlight
-            %p.text-center.text-uppercase.text-highlight=@service.title
-            /%p.text-center.text-highlight.subtitle Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-%section.interna#services
+%section.interna
   .container-fluid
     .row
       .container
-        %p.breadcrumb 
-          > Kattios/Serviços/
-          =@service.title
-        - if File.exist?("#{Rails.root }/app/views/services/_#{@service.id}.html.haml")
-          =render :file => "services/_#{@service.id}.html.haml"
-        - else
-          %p Nenhuma informação disponivel no momento!
+        .row
+          %h1 fachadas
+          
+  .container
+    .row
+      .col-sm-12
+        %h2 revestimento
+        
+      .col-sm-12.imagem-principal
+        =image_tag("/assets/banners/fachadas.jpg", :class => "img-responsive")
+        
+      .col-sm-4
+        =image_tag("/assets/banners/servico1.jpg", :class => "img-responsive")
+        
+      .col-sm-4
+        =image_tag("/assets/banners/servico2.jpg", :class => "img-responsive")
+        
+      .col-sm-4
+        =image_tag("/assets/banners/servico3.jpg", :class => "img-responsive")
+        
+        
+    .row.description
+      .col-sm-12
+        %h3 Duis aute irure dolor in reprehenderit
+        %p
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+          
+          
+= render :file => "layouts/_services_box.html.haml"

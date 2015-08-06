@@ -1,5 +1,4 @@
 class ContactsController < ApplicationController
-  before_filter :load_services  
   def new
     @contact = Contact.new
   end

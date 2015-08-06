@@ -1,9 +1,62 @@
 %footer
-  .container-fluid.infos
+  %iframe{:allowfullscreen => "", :frameborder => "0", :height => "240", :src => "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.3941941703292!2d-46.5594283!3d-23.1192624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cec11f0da0a6fd%3A0x578d095131f8e23b!2sArtworld!5e0!3m2!1spt-BR!2sbr!4v1438634137233", :style => "border:0", :width => "100%"}
+  
+  %section.footer
     .container
-      .col-md-10.email
-        =link_to(image_tag("ico-twitter.jpg"), "#", :target => "_blank")      #Segundo Orientação da Ana ainda não temos plano de midia para a MTPlus, está em analise.
-        =link_to(image_tag("ico-facebook.jpg"), "#", :target => "_blank")     #Segundo Orientação da Ana ainda não temos plano de midia para a MTPlus, está em analise.
-        contato@kattios.com.br
-      .col-md-2.sato7
-        %p=link_to(image_tag("sato7.gif", :style=>"width:100%;max-width:129px;"), "http://www.sato7.com.br", :target => "_blank")
+      .row
+        .col-sm-12.text-center
+          %a.sprite.logo-white{:href => "/"} ArtWorld
+        
+      .row
+        .col-sm-6
+          %p 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+          
+          %ul
+            %li=link_to "A Empresa", "#"
+            %li=link_to "Serviços", "#"
+            %li=link_to "Eventos", "#"
+            %li=link_to "Toldos e Coberturas", "#"
+            %li=link_to "Painel de LED", "#"
+            %li=link_to "nossos trabalhos", "#"
+            %li=link_to "contato", "#"
+          
+          %p
+            %span.sprite.map
+            Art World – Soluções em Comunicação - Rua João Paulino dos Santos, 210 – Atibaia – SP
+        
+        .col-sm-6
+          .row
+            .col-sm-6
+              %form
+                %input.form-control{:type => "text", :placeholder => "Nome"}
+                %input.form-control{:type => "text", :placeholder => "sobrenome"}
+                %input.form-control{:type => "text", :placeholder => "e-mail"}
+                %input.form-control{:type => "text", :placeholder => "assunto"}
+                %textarea.form-control{:type => "text", :placeholder => "mensagem"}
+                %input.submit.pull-right{:type => "submit", :value => "Enviar"}
+            .col-sm-6
+              .fb-page{"data-adapt-container-width" => "true", "data-hide-cover" => "true", "data-href" => "https://www.facebook.com/facebook", "data-show-facepile" => "true", "data-show-posts" => "false", "data-small-header" => "false"}
+                .fb-xfbml-parse-ignore
+                  %blockquote{:cite => "https://www.facebook.com/facebook"}
+                    %a{:href => "https://www.facebook.com/facebook"} Facebook
+  
+          .row.contacts
+            .col-sm-6.col-xs-6
+              %p
+                %span.sprite.phone-rounded
+                11 4412 4455
+              
+            .col-sm-6.col-xs-6.text-right
+              %a.sprite.fb-rounded{:href => "#"}
+              %a.sprite.tw-rounded{:href => "#"}
+              %a.sprite.ig-rounded{:href => "#"}
+
+  %section.copyright
+    .container
+      .row
+        .col-sm-6
+          %p © 2015 - Todos os Direitos Reservados a Art World
+          
+        .col-sm-6.text-right
+          %a.sprite.logo-sato7{:href => "http://www.sato7.com.br", :target => "_blank"}

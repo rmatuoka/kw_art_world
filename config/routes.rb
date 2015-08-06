@@ -9,6 +9,7 @@ KwArtWorld::Application.routes.draw do
   resources :homes, :only => [:index]
   resources :user_sessions
   resources :users
+  resources :cases
   
   
   namespace(:admin){
