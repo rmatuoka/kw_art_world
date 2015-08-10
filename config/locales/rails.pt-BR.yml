@@ -225,6 +225,8 @@ pt-BR:
       product_image: "Imagem do Produto"
       product_information: "Informação Técnica do Produto"
       service_image: "Galeria - Serviços"
+      case: "Caso de Sucesso"
+      case_image: "Galeria - Casos de Sucesso"
     attributes:
       default: &default_name
         id: 'Código'
@@ -289,7 +291,12 @@ pt-BR:
         <<: *default_name    
         attribute_title: "Atributo"
         value: "Informação"    
-                 
+      case:
+        <<: *default_name
+      
+    
+    
+    
     errors:
       <<: *errors
       header: "Campos inválidos"

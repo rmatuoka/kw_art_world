@@ -1,0 +1,31 @@
+= form_for [:admin, @case] do |f|
+  -if f.error_messages
+    .alert.alert-danger.alert-dismissable
+      %i.fa.fa-ban
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+      %b Alert!
+      Confira os campos marcados em vermelho.
+  .box-body
+    .form-group
+      = f.label :title
+      %br
+      = f.text_field :title, :class => "form-control", :placeholder => t("activerecord.attributes.case.title")  
+    .form-group
+      = f.label :subtitle
+      %br
+      = f.text_field :subtitle, :class => "form-control", :placeholder => t("activerecord.attributes.case.subtitle")  
+    .form-group
+      = f.label :description
+      %br
+      = f.text_area :description, :class => "form-control", :placeholder => t("activerecord.attributes.case.description")  
+    .form-group
+      = f.label :published
+      %br
+      = f.check_box :published
+    .form-group
+      =f.label :main_img, "Imagem Principal"
+      
+    .form-group
+      Iagens secundárias
+  .box-footer
+    = f.submit nil, :class => "btn btn-primary" 

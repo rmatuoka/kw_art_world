@@ -21,8 +21,14 @@ KwArtWorld::Application.routes.draw do
     resources :contacts, :only => [:index, :show, :destroy]
     resources :highlights
     resources :statics, :only => [:index]
-    resources :categories        
+    resources (:categories){
+      resources :subcategories
+    }
     root :to => 'statics#index'
+    
+    resources (:cases){
+      resources :case_images 
+    }
   }
   
   

@@ -42,11 +42,17 @@
 
               %li
                 =link_to("a empresa", "#");
+              -@header_categories.each do |category|
                 %li.dropdown
-                  %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
-                    Fachadas
-                    %span.caret
-                  %ul.dropdown-menu
+                  -unless category.children.exists?
+                    =link_to services_path(:category=>"#{category.id}"), :class=>"dorpdown-toggle", "aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button" do
+                      =category.title
+                      %span.caret
+                  -else
+                    %ul.dropdown-menu
+                      -category.children.each do |subcategory|
+                        %li
+                          =link_to subcategory.title
                     %li
                       %a{:href => "/services/1"} Revestimentos
                     %li

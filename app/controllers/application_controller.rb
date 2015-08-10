@@ -3,7 +3,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user 
   
+  before_filter :load_categories
   
+  def load_categories
+    @header_categories=Category.only_father_published
+  end
   
   private
    

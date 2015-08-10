@@ -12,11 +12,22 @@
 
 ActiveRecord::Schema.define(:version => 20150724215237) do
 
+
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.string   "subtitle"
     t.text     "description"
     t.integer  "order",       :default => 0,    :null => false
+    t.boolean  "active",      :default => true, :null => false
+    t.boolean  "published",   :default => true, :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  create_table "cases", :force => true do |t|
+    t.string   "title"
+    t.string   "subtitle"
+    t.text     "description"
     t.boolean  "active",      :default => true, :null => false
     t.boolean  "published",   :default => true, :null => false
     t.datetime "created_at",                    :null => false
@@ -35,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20150724215237) do
     t.string   "image_category_content_type"
     t.integer  "image_category_file_size"
     t.datetime "image_category_updated_at"
+    t.integer  "father_id"
   end
 
   create_table "category_services", :force => true do |t|
