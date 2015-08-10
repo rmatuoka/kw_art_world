@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150727200407) do
+ActiveRecord::Schema.define(:version => 20150724215237) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -106,15 +106,15 @@ ActiveRecord::Schema.define(:version => 20150727200407) do
   create_table "services", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.boolean  "active",                   :default => true, :null => false
-    t.boolean  "published",                :default => true, :null => false
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
+    t.boolean  "highlight",                :default => false, :null => false
+    t.boolean  "active",                   :default => true,  :null => false
+    t.boolean  "published",                :default => true,  :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
     t.string   "service_img_file_name"
     t.string   "service_img_content_type"
     t.integer  "service_img_file_size"
     t.datetime "service_img_updated_at"
-    t.boolean  "highlight"
   end
 
   create_table "sessions", :force => true do |t|
