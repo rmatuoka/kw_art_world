@@ -57,7 +57,7 @@
                             =link_to services_path(:category=>"#{category.id}"), :class=>"dorpdown-toggle", "aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button" do
                               =c.title
                               %span.caret
-                            %ul.dropdown-menu
+                            %ul.dropdown-menu.dropdown-menu-right
                               - c.services.each do |s|
                                 %li
                                   %a{:href => "/services/1"}=s.title
