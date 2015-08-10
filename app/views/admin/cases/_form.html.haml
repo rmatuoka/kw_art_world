@@ -24,8 +24,11 @@
       = f.check_box :published
     .form-group
       =f.label :main_img, "Imagem Principal"
-      
+      =f.file_field :main_img, :class=>"form-control"
     .form-group
-      Iagens secundárias
+      %label Imagens secundárias
+      =f.file_field :img1, :class=>"form-control"
+      =f.file_field :img2, :class=>"form-control"
+      =f.file_field :img3, :class=>"form-control"
   .box-footer
     = f.submit nil, :class => "btn btn-primary" 
