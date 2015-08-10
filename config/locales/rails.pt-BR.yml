@@ -242,6 +242,7 @@ pt-BR:
         published: 'Publicado'
         city: "Cidade"
         order: "Ordem"        
+        image: "Imagem"        
         commercial_phone: "Telefone Comercial"   
         password: "Senha"
         password_confirmation: "Confirme sua Senha"  

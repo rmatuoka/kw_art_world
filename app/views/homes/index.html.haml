@@ -5,10 +5,8 @@
   .container-fluid
     .row
       .col-sm-12.background.cycle-slideshow{"data-cycle-fx"=>"scrollHorz"}
-        =image_tag("/assets/banners/padrao.jpg", :class =>"img-responsive")
-        =image_tag("/assets/banners/padrao.jpg", :class =>"img-responsive")
-        =image_tag("/assets/banners/padrao.jpg", :class =>"img-responsive")
-
+        -@highlights.each do |h|
+          =image_tag(h.image_highlight.url, :class =>"img-responsive")
 
 %section.text
   .container

@@ -20,6 +20,7 @@
         %table.table.table-hover
           %tr
             %th=t("activerecord.attributes.highlight.id")
+            %th=t("activerecord.attributes.highlight.image")
             %th=t("activerecord.attributes.highlight.title")
             %th=t("activerecord.attributes.highlight.publication_start")
             %th=t("activerecord.attributes.highlight.publication_stop")
@@ -28,6 +29,7 @@
           - for highlight in @highlights 
             %tr
               %td= highlight.id
+              %td=image_tag(highlight.image_highlight(:thumb))
               %td= highlight.title
               %td= highlight.publication_start
               %td= highlight.publication_stop

@@ -47,10 +47,5 @@ class Category < ActiveRecord::Base
     all(:conditions => ['active =  true and published = true and father_id is not null'],
         :order => order)
   end  
-  
-  
-  
-  
-  
-  
+
 end

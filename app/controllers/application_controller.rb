@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :load_categories
   
   def load_categories
-    @header_categories=Category.only_father_published
+    @header_categories=Category.includes([:children, :services]).where("categories.father_id IS NULL")
   end
   
   private

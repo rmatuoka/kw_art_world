@@ -42,39 +42,50 @@
 
               %li
                 =link_to("a empresa", "#");
+              
               -@header_categories.each do |category|
-                %li.dropdown
-                  -unless category.children.exists?
+                -if category.children.exists?
+                  %li.dropdown
                     =link_to services_path(:category=>"#{category.id}"), :class=>"dorpdown-toggle", "aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button" do
                       =category.title
                       %span.caret
-                  -else
+                      
                     %ul.dropdown-menu
-                      -category.children.each do |subcategory|
-                        %li
-                          =link_to subcategory.title
-                    %li
-                      %a{:href => "/services/1"} Revestimentos
-                    %li
-                      %a{:href => "#"} Letras em relevo
-                    %li
-                      %a{:href => "#"} corte router
-                    %li
-                      %a{:href => "#"} iluminação
-                    %li
-                      %a{:href => "#"} totem
+                      - category.children.each do |c|     
+                        - if c.services.exists?
+                          %li.dropdown
+                            =link_to services_path(:category=>"#{category.id}"), :class=>"dorpdown-toggle", "aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button" do
+                              =c.title
+                              %span.caret
+                            %ul.dropdown-menu
+                              - c.services.each do |s|
+                                %li
+                                  %a{:href => "/services/1"}=s.title
+                -else
+                  -if category.services.exists?
+                    %li.dropdown
+                      =link_to services_path(:category=>"#{category.id}"), :class=>"dorpdown-toggle", "aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button" do
+                        =category.title
+                        %span.caret
+                      %ul.dropdown-menu
+                        - category.services.each do |s|
+                          %li
+                            %a{:href => "/services/1"}=s.title
 
-              %li
-                =link_to("interno", "#");
-              %li
-                =link_to("envelopamento", "#");
-              %li
-                =link_to("toldos e coberturas", "#");
-              %li
-                =link_to("feiras e eventos", "#");
-              %li
-                =link_to("mercado", "#");
-              %li
-                =link_to("nossos trabalhos", "/cases");
+              
+              
+
+              /%li
+              /  =link_to("interno", "#");
+              /%li
+              /  =link_to("envelopamento", "#");
+              /%li
+              /  =link_to("toldos e coberturas", "#");
+              /%li
+              /  =link_to("feiras e eventos", "#");
+              /%li
+              /  =link_to("mercado", "#");
+              /%li
+              /  =link_to("nossos trabalhos", "/cases");
               /%li
               /  =link_to("contato", "#");
