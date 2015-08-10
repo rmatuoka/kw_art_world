@@ -1,0 +1,36 @@
+%section.content-header
+  %h1
+    Casos de Sucesso  
+    %small Painel de Controle
+  %ol.breadcrumb
+    %li
+      %a{:href => "/admin"}
+        %i.fa.fa-dashboard
+        Home
+    %li.active Casos
+/ Main content
+%section.content
+  .col-xs-12
+    %p
+      = link_to "Novo Caso", new_admin_case_path, :class => "btn btn-primary" 
+    .box
+      .box-header
+        %h3.box-title 
+          Casos Cadastradas
+      .box-body.table-responsive.no-padding
+        %table.table.table-hover
+          %tr
+            %th=t("activerecord.attributes.case.title")
+            %th=t("activerecord.attributes.case.subtitle")
+            %th=t("activerecord.attributes.case.published")
+            %th= t("actions")
+          - for caso in @cases
+            %tr
+              %td= caso.title
+              %td{:title=>"#{caso.subtitle}"}= truncate(caso.subtitle)
+              %td= show_boolean(caso.published)
+              %td
+                = link_to t("show"), [:admin, caso], :class=>"btn btn-default"
+                = link_to t("edit"), edit_admin_case_path(caso), :class=>"btn btn-default"
+                = link_to t("destroy"), [:admin, caso], :confirm => 'Are you sure?', :method => :delete, :class=>"btn btn-danger"
+

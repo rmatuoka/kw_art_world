@@ -1,0 +1,45 @@
+%section.content-header
+  %h1
+    Casos de Sucesso  
+    %small Painel de Controle
+  %ol.breadcrumb
+    %li
+      %a{:href => "/admin"}
+        %i.fa.fa-dashboard
+        Home
+    %li.active Casos
+
+%section.content   
+  .row
+    / left column
+    .col-md-12
+      / general form elements
+      .box.box-primary
+        .box-header
+          %h3.box-title="#{@case.title}"
+        
+        .box-body  
+          %p
+            %strong= "#{t("activerecord.attributes.case.title")}:"
+            %br
+            = @case.title
+        .box-body  
+          %p
+            %strong= "#{t("activerecord.attributes.case.subtitle")}:"
+            %br
+            = @case.subtitle
+        .box-body  
+          %p
+            %strong= "#{t("activerecord.attributes.case.description")}:"
+            %br
+            = @case.description
+        .box-body  
+          %p
+            %strong= "#{t("activerecord.attributes.case.published")}:"
+            %br
+            = show_boolean(@case.published)
+
+  = link_to t("edit"), edit_admin_case_path(@case), :class => "btn btn-default"
+  = link_to t("back_list"), admin_cases_path, :class => "btn btn-default"
+  = link_to "Novo Caso", new_admin_case_path, :class => "btn btn-primary"
+  = link_to "Galeria", admin_case_case_images_path(@case), :class => "btn btn-success"

@@ -4,7 +4,7 @@ class Admin::CategoriesController < ApplicationController
   end 
   layout "admin"
   def index
-    @categories = Category.all_active
+    @categories = Category.only_father_active
   end
 
   def show

@@ -32,7 +32,7 @@
               %td 
                 = link_to t("show"), [:admin, category], :class => "btn btn-default"
                 = link_to t("edit"), edit_admin_category_path(category), :class => "btn btn-default"
-                = link_to t("destroy"), [:admin, category], :confirm => t("msg_delete"), :method => :delete, :class => "btn btn-danger"
-
+                = link_to t("destroy"), [:admin, category], :confirm => t("msg_delete"), :method => :delete, :class => "btn btn-danger" unless SERVICE_BOX.include?(category.id)
+                = link_to "Subcategorias", admin_category_subcategories_path(category.id),:class=>"btn btn-success"
     %p
       = link_to "Nova Categoria", new_admin_category_path, :class => "btn btn-primary"

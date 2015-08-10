@@ -1,13 +1,13 @@
 %section.content-header
   %h1
-    Categoria
+    Casos de Sucesso
     %small Painel de Controle
   %ol.breadcrumb
     %li
       %a{:href => "#"}
         %i.fa.fa-dashboard
         Home
-    %li.active Categoria
+    %li.active Casos de Sucesso
 
 
 / Main content
@@ -18,14 +18,12 @@
       / general form elements
       .box.box-primary
         .box-header
-          %h3.box-title 
-            Nova Subcategoria de
-            =@category.title
+          %h3.box-title Novo Caso
         / /.box-header
         / form start
         = render 'form'
       
 
       %p
-        = link_to t("back_list"), admin_category_subcategories_path(@category), :class => "btn btn-default"
+        = link_to t("back_list"), admin_cases_path, :class => "btn btn-default"
         

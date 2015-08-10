@@ -13,6 +13,16 @@ class Admin::ServicesController < ApplicationController
 
   def new
     @service = Service.new
+    
+    @categorias=Array.new
+    @categories=Category.all_published
+    @categories.each do |category|
+      @categorias << category unless category.children.exists?
+      @categorias << category if category.id==4
+    end
+    
+    puts "ARRAY================#{@categorias}"
+    puts "FROMMODEL*****************#{Category.all_published}"
   end
 
   def create

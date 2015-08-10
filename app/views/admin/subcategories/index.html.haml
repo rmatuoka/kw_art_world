@@ -47,8 +47,7 @@
               %td 
                 = link_to t("show"), admin_category_subcategory_path(@category, subcategory), :class => "btn btn-default"
                 = link_to t("edit"), edit_admin_category_subcategory_path(@category,subcategory), :class => "btn btn-default"
-                = link_to t("destroy"), admin_category_subcategory_path(@category, subcategory), :confirm => t("msg_delete"), :method => :delete, :class => "btn btn-danger"
-                = link_to "Subcategoria de #{subcategory.title}", admin_category_subcategories_path(subcategory), :class => "btn btn-success"
+                = link_to t("destroy"), admin_category_subcategory_path(@category, subcategory), :confirm => t("msg_delete"), :method => :delete, :class => "btn btn-danger" unless SERVICE_BOX.include?(subcategory.id)
 
     %p
       = link_to "Nova Subcategoria", new_admin_category_subcategory_path(@category), :class => "btn btn-primary"

@@ -33,5 +33,6 @@
           %p
             = link_to t('edit'), edit_admin_service_path(@service), :class => "btn btn-default"
             = link_to t("back_list"), admin_services_path, :class => "btn btn-default"
+            = link_to "Novo Serviço", new_admin_service_path, :class => "btn btn-primary"
             = link_to t("destroy"), [:admin, @service], :confirm => 'Are you sure?', :method => :delete, :class => "btn btn-danger"            
             = link_to t("activerecord.models.service_image"), admin_service_service_images_path(@service.id), :class => "btn btn-success"

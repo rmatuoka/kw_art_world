@@ -1,4 +1,5 @@
-= form_for [:admin, @subcategory], :url => admin_category_subcategories_path(@category) do |f|
+- @subcategory.id.nil? ? send_path = admin_category_subcategories_path(@category) : send_path = admin_category_subcategory_path(@category, @subcategory)
+= form_for [:admin, @subcategory], :url =>send_path do |f|
   -if f.error_messages
     .alert.alert-danger.alert-dismissable
       %i.fa.fa-ban
