@@ -1,5 +1,6 @@
 KwArtWorld::Application.routes.draw do    
 
+
   post '/tinymce_assets' => 'tinymce_assets#create'                              
   resources :services, :only => [:index, :show]
   resources :customers, :only => [:index]
@@ -10,7 +11,7 @@ KwArtWorld::Application.routes.draw do
   resources :user_sessions
   resources :users
   resources :cases
-  
+  resources :categories, :only => [:index, :show]
   
   namespace(:admin){
     resources (:services){
