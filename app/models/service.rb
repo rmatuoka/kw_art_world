@@ -1,5 +1,5 @@
 class Service < ActiveRecord::Base
-  attr_accessible :title, :description, :active, :published, :service_img, :category_ids, :highlight
+  attr_accessible :title, :description, :active, :published, :service_img, :category_ids, :highlight, :subtitle
   has_attached_file :service_img, :styles  => {:thumb => "50x50>", :services => "130x130>"} 
   
   has_many :category_services
