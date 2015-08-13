@@ -6,21 +6,20 @@
           %h1= @category.title
           
   .container
+    -c=0
     -@services.each do |service|
       .row
         .col-sm-12
-          %h2= service.title
-          
-        
-          -if service.service_images.exists?
-            -service.service_images.sort_by{|t| - t.order}.recent(3).each do |image|
+          %h2= link_to service.title, service_path(service.id, :category=>@category.id)
+          -if !@service_images[c].nil?
+            -@service_images[c].each do |image|
               .col-sm-4
-                =image_tag(image.img_service(:thumb), :class => "img-responsive") if image.img_service.file?
+                =image_tag(image.img_service.url(:list), :class => "img-responsive") if image.img_service.file?
       .row.description
         .col-sm-12
           %h3= service.subtitle
           %p
             =service.description
-          
+      -c+=1    
           
 = render :file => "layouts/_services_box.html.haml"

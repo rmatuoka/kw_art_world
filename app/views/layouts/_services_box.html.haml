@@ -4,40 +4,40 @@
       .col-sm-3.col-xs-6
         .col-sm-12.service-box.impressao-digital.text-center
           .sprite.impressao-digital
-          %a Impressão digital
+          =link_to "Impressão digital", category_path(2)
       
       .col-sm-3.col-xs-6
         .col-sm-12.service-box.construcao.text-center
           .sprite.construcao
-          %a construção e arquitetura
+          =link_to "Construção e arquitetura", services_path(:category=>8)
       
       .col-sm-3.col-xs-6
         .col-sm-12.service-box.corte-laser.text-center
           .sprite.corte-laser
-          %a corte router
+          =link_to "Corte Router", service_path(9, :category=>1)
       
       .col-sm-3.col-xs-6
         .col-sm-12.service-box.industria.text-center
           .sprite.construcao
-          %a indústria
+          =link_to "indústria", services_path(:category=>9)
           
           
       .col-sm-3.col-xs-6
         .col-sm-12.service-box.toldos.text-center
           .sprite.toldos
-          %a toldos e coberturas
+          =link_to "toldos e coberturas", category_path(5)
 
       .col-sm-3.col-xs-6
         .col-sm-12.service-box.eventos.text-center
           .sprite.eventos
-          %a feiras e eventos
+          =link_to "feiras e eventos", category_path(6)
 
       .col-sm-3.col-xs-6
         .col-sm-12.service-box.comunicacao-interna.text-center
           .sprite.comunicacao-interna
-          %a comunicação interna
+          =link_to "comunicação interna", category_path(7)
 
       .col-sm-3.col-xs-6
         .col-sm-12.service-box.veiculos.text-center
           .sprite.veiculos
-          %a sinalização de veículos
+          =link_to "sinalização de veículos", category_path(4)

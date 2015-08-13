@@ -21,32 +21,24 @@
           
 %section.cases
   .container
-    .row
+    -class_changer=1
+    -cclass="shadow-left"
+    -row="<div class='row'>"
+    -@cases.each do |caso|
+      =raw(row)
       .col-sm-6
-        %h3 All Seg Seguros
-        =image_tag("/assets/template/case.jpg", :class => "img-responsive shadow-left")
-        %a
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-      
-      .col-sm-6
-        %h3 Colcci Store
-        =image_tag("/assets/template/case.jpg", :class => "img-responsive shadow-right")
-        %a
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+        %h3= caso.title
+        =image_tag(caso.main_img.url(:to_home), :class => "img-responsive #{cclass}")
+        =link_to caso.resume, case_path(caso.id)
+      -if class_changer % 2 == 0 || @cases.count==class_changer
+        -cclass="shadow-left"
+        -row=""
+        =raw('</div>') 
+      -else
+        -cclass="shadow-right"
+        -row="<div class='row'>"
+      -class_changer+=1
           
-          
-    .row
-      .col-sm-6
-        %h3 Única Acabamentos
-        =image_tag("/assets/template/case.jpg", :class => "img-responsive shadow-left")
-        %a
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
-
-      .col-sm-6
-        %h3 Humanitariam
-        =image_tag("/assets/template/case.jpg", :class => "img-responsive shadow-right")
-        %a
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
       
 %section.customers
   .container

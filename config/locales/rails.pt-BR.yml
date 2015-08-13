@@ -246,6 +246,7 @@ pt-BR:
         commercial_phone: "Telefone Comercial"   
         password: "Senha"
         password_confirmation: "Confirme sua Senha"  
+        resume: "Resumo"
       user:
         <<: *default_name  
       user_session:
@@ -294,7 +295,8 @@ pt-BR:
         value: "Informação"    
       case:
         <<: *default_name
-      
+      service_image:
+        <<: *default_name
     
     
     

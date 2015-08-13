@@ -28,6 +28,7 @@
             %p=image_tag(@service_image.img_service.url)
         .box-footer
           %p
-            = link_to t("edit"), edit_admin_service_service_image_path(@service_image), :class=>"btn btn-default"
+            = link_to t("edit"), edit_admin_service_service_image_path(@service,@service_image), :class=>"btn btn-default"
             = link_to t("back_list"), admin_service_service_images_path, :class=>"btn btn-default"
             = link_to t("destroy"), [:admin, @service, @service_image], :confirm => 'Are you sure?', :method => :delete, :class=>"btn btn-danger"
+            = link_to "Nova Imagem", new_admin_service_service_image_path(@service), :class => "btn btn-primary"

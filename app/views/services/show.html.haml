@@ -12,14 +12,14 @@
         
         -contador=0  
         -if @service.service_images.exists?
-          -@service.service_images.sort_by{|t| - t.order}.recent(4).each do |image|
+          -@service_images.each do |image|
             -if contador==0
               .col-sm-12.imagem-principal
                 =image_tag(image.img_service.url(:default), :class => "img-responsive")
               -contador=1
             -else
               .col-sm-3
-                =image_tag(image.img_service.url(:default), :class => "img-responsive")
+                =link_to image_tag(image.img_service.url(:default), :class => "img-responsive"), image.img_service.url(:original), :id=>"img-#{image.id}", :class=>"gallery", :rel=>"svc-imgs"
           
       .row.description
         .col-sm-12
@@ -27,3 +27,20 @@
           %p= @service.description
           
 = render :file => "layouts/_services_box.html.haml"
+
+
+-content_for(:footer) do
+  :javascript
+    $(document).ready(function() {
+
+      $("a.gallery").fancybox({
+        'transitionIn'	:	'elastic',
+        'transitionOut'	:	'elastic',
+        'speedIn'		:	600, 
+        'speedOut'		:	200, 
+        'overlayShow'	:	false
+      });
+	
+    });
+
+

@@ -14,12 +14,9 @@
           
           %ul
             %li=link_to "A Empresa", "#"
-            %li=link_to "Serviços", "#"
-            %li=link_to "Eventos", "#"
-            %li=link_to "Toldos e Coberturas", "#"
-            %li=link_to "Painel de LED", "#"
-            %li=link_to "nossos trabalhos", "#"
-            %li=link_to "contato", "#"
+            -@header_categories.each do |category|
+              %li= link_to category.title, category_path(category.id)
+            %li=link_to "nossos trabalhos", cases_path
           
           %p
             %span.sprite.map
@@ -28,13 +25,13 @@
         .col-sm-6
           .row
             .col-sm-6
-              %form
-                %input.form-control{:type => "text", :placeholder => "Nome"}
-                %input.form-control{:type => "text", :placeholder => "sobrenome"}
-                %input.form-control{:type => "text", :placeholder => "e-mail"}
-                %input.form-control{:type => "text", :placeholder => "assunto"}
-                %textarea.form-control{:type => "text", :placeholder => "mensagem"}
-                %input.submit.pull-right{:type => "submit", :value => "Enviar"}
+              =form_for Contact.new, :method=>:post, :remote=>true do |f|
+                =f.text_field :name, :class=>"form-control", :placeholder=>"Nome"
+                =f.text_field :surname, :class=>"form-control", :placeholder=>"Sobrenome"
+                =f.text_field :email, :class=>"form-control", :placeholder=>"e-mail"
+                =f.text_field :subject, :class=>"form-control", :placeholder=>"assunto"
+                =f.text_area :message, :class=>"form-control", :placeholder=>"mensagem", :type=>"text", :rows=>2
+                =f.submit "Enviar", :class=>"submit pull-right"
             .col-sm-6
               .fb-page{"data-adapt-container-width" => "true", "data-hide-cover" => "true", "data-href" => "https://www.facebook.com/facebook", "data-show-facepile" => "true", "data-show-posts" => "false", "data-small-header" => "false"}
                 .fb-xfbml-parse-ignore

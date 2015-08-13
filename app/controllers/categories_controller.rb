@@ -5,6 +5,13 @@ class CategoriesController < ApplicationController
 
   def show
     @category=Category.find_by_id(params[:id])
-    @subcategory=@category.children.all_published
+    @subcategories=nil
+    @services=nil
+    if @category.children.exists?
+      @subcategories=@category.children.all_published
+    end
+    if @category.services.exists?
+      @services=@category.services.all_published
+    end
   end
 end

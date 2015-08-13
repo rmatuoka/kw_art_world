@@ -1,6 +1,6 @@
 class Notifier < ActionMailer::Base
   helper :application     
-  default :from => "Kattios <no-reply@sato7.com.br>"
+  default :from => "Art World <no-reply@artworld.com.br>"
 
   def send_contact_user(contact)
     @contact = contact

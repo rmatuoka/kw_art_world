@@ -3,19 +3,36 @@
     .row
       .container
         .row
-          %h1 category.title
+          %h1= @category.title
           
   .container
-    .row
-      .col-sm-12
-        %h2 subcategory.title
+    -if !@subcategories.nil?
+      %h2 subcategorias
+      -@subcategories.each do |subcategory|
+        .row
+          .col-sm-12
+            %h2= link_to subcategory.title, services_path(:category=>subcategory.id)
+            
+            
+        .row.description
+          .col-sm-12
+            %h3= subcategory.subtitle
+            %p
+              =subcategory.description
+    -if !@services.nil?
+      %h2 serviços
+      -@services.each do |service|
+        .row
+          .col-sm-12
+            %h2= link_to service.title, service_path(service.id, :category=>@category.id)
+            
+            
+        .row.description
+          .col-sm-12
+            %h3= service.subtitle
+            %p
+              =service.description
         
-        
-    .row.description
-      .col-sm-12
-        %h3= subcategory.subtitle
-        %p
-          =subcategory.description
-          
+      
           
 = render :file => "layouts/_services_box.html.haml"
