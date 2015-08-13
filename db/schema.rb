@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150813204808) do
+ActiveRecord::Schema.define(:version => 20150810211547) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -47,9 +47,6 @@ ActiveRecord::Schema.define(:version => 20150813204808) do
     t.string   "img3_content_type"
     t.integer  "img3_file_size"
     t.datetime "img3_updated_at"
-    t.integer  "order"
-    t.boolean  "highlight"
-    t.string   "resume"
   end
 
   create_table "categories", :force => true do |t|
@@ -65,7 +62,6 @@ ActiveRecord::Schema.define(:version => 20150813204808) do
     t.integer  "image_category_file_size"
     t.datetime "image_category_updated_at"
     t.integer  "father_id"
-    t.string   "subtitle"
   end
 
   create_table "category_services", :force => true do |t|
@@ -86,8 +82,6 @@ ActiveRecord::Schema.define(:version => 20150813204808) do
     t.boolean  "published",  :default => true, :null => false
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
-    t.string   "surname"
-    t.string   "subject"
   end
 
   create_table "highlights", :force => true do |t|
@@ -139,15 +133,15 @@ ActiveRecord::Schema.define(:version => 20150813204808) do
   create_table "services", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.boolean  "active",                   :default => true, :null => false
-    t.boolean  "published",                :default => true, :null => false
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
+    t.boolean  "highlight",                :default => false, :null => false
+    t.boolean  "active",                   :default => true,  :null => false
+    t.boolean  "published",                :default => true,  :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
     t.string   "service_img_file_name"
     t.string   "service_img_content_type"
     t.integer  "service_img_file_size"
     t.datetime "service_img_updated_at"
-    t.boolean  "highlight"
     t.string   "subtitle"
   end
 
