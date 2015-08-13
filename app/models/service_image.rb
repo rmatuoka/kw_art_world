@@ -3,7 +3,8 @@ class ServiceImage < ActiveRecord::Base
 
   has_attached_file :img_service, :styles=>{
                                   :default=>"1140x387#",
-                                  :thumb=>"160x90#"
+                                  :thumb=>"160x90#",
+                                  :list=>"360x182#"
                                   }
 
 end

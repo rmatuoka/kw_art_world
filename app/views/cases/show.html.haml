@@ -11,16 +11,16 @@
         %h2= @case.title
         
       .col-sm-12.imagem-principal
-        =image_tag(@case.main_img.url(:big), :class => "img-responsive") if @case.main_img.file?
+        =link_to image_tag(@case.main_img.url(:big), :class => "img-responsive"),@case.main_img.url(:original),:class=>"gallery", :rel=>"imgs" if @case.main_img.file?
         
       .col-sm-4
-        =image_tag(@case.img1.url(:small), :class => "img-responsive") if @case.main_img.file?
+        =link_to image_tag(@case.img1.url(:small), :class => "img-responsive"),@case.img1.url(:original),:class=>"gallery", :rel=>"imgs" if @case.main_img.file?
                 
       .col-sm-4
-        =image_tag(@case.img2.url(:small), :class => "img-responsive") if @case.main_img.file?
+        =link_to image_tag(@case.img2.url(:small), :class => "img-responsive"),@case.img2.url(:original),:class=>"gallery", :rel=>"imgs" if @case.main_img.file?
         
       .col-sm-4
-        =image_tag(@case.img3.url(:small), :class => "img-responsive") if @case.main_img.file?
+        =link_to image_tag(@case.img3.url(:small), :class => "img-responsive"),@case.img3.url(:original), :class=>"gallery", :rel=>"imgs" if @case.main_img.file?
         
         
     .row.description
@@ -31,3 +31,16 @@
           
           
 = render :file => "layouts/_services_box.html.haml"
+
+
+-content_for(:footer) do
+  :javascript
+    $(document).ready(function() {
+      $("a.gallery").fancybox({
+        'transitionIn'	:	'elastic',
+        'transitionOut'	:	'elastic',
+        'speedIn'		:	600, 
+        'speedOut'		:	200, 
+        'overlayShow'	:	false
+      });
+    });

@@ -41,7 +41,7 @@
                   %i.glyphicon.glyphicon-home.white
 
               %li
-                =link_to("a empresa", "#");
+                =link_to "a empresa", about_us_path
               
               -@header_categories.each do |category|
                 -if category.children.exists?

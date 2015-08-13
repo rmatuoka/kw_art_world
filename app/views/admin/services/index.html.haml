@@ -31,6 +31,6 @@
               %td 
                 = link_to t("show"), [:admin, service], :class => "btn btn-default"
                 = link_to t("edit"), edit_admin_service_path(service), :class => "btn btn-default"
-                = link_to t("destroy"), [:admin, service], :confirm => t("msg_delete"), :method => :delete, :class => "btn btn-danger"
+                = link_to t("destroy"), [:admin, service], :confirm => t("msg_delete"), :method => :delete, :class => "btn btn-danger" unless SERVICE_BOX.include?("#{service.title.to_s}")
                 = link_to t("activerecord.models.service_image"), admin_service_service_images_path(service.id), :class => "btn btn-success"
     %p= link_to "Novo Serviço", new_admin_service_path, :class => "btn btn-primary"
