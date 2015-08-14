@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
   
   def load_categories
     @header_categories=Category.includes([:children, :services]).where("categories.father_id IS NULL")
+    @impressao=Service.where("title = 'Impressão Digital' or title = 'impressao digital' or title = 'IMPRESSÃO DIGITAL' or title = 
+               'Impressão Digital' or title =  'impressao digital' or title =   'IMPRESSÃO DIGITAL' or title = 
+              'Impressão Digital'  or title =  'impressao digital'  or title =  'IMPRESSÃO DIGITAL'  or title = 
+               'Impressão Digital'  or title =   'impressao digital'  or title =   'IMPRESSÃO DIGITAL' ").first;
   end
   
   private

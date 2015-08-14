@@ -6,11 +6,6 @@ class ServicesController < ApplicationController
     @services.each do |servico|
       @service_images << servico.service_images.all_published("`order`, updated_at").first(3)
     end
-    c=0
-    @service_images.each do |s|
-      puts "==========================[#{c}]=#{s.to_yaml} "
-      c+=1
-    end
   end
   
   def show
@@ -18,5 +13,4 @@ class ServicesController < ApplicationController
     @category=@service.categories.first
     @service_images=@service.service_images.all_published("`order`, updated_at") if @service.service_images.exists?
   end
-  
 end

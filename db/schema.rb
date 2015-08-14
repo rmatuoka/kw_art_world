@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150810211547) do
+ActiveRecord::Schema.define(:version => 20150813225934) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -27,10 +27,10 @@ ActiveRecord::Schema.define(:version => 20150810211547) do
     t.string   "title"
     t.string   "subtitle"
     t.text     "description"
-    t.boolean  "active",                :default => true, :null => false
-    t.boolean  "published",             :default => true, :null => false
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
+    t.boolean  "active",                :default => true,  :null => false
+    t.boolean  "published",             :default => true,  :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.string   "main_img_file_name"
     t.string   "main_img_content_type"
     t.integer  "main_img_file_size"
@@ -47,6 +47,9 @@ ActiveRecord::Schema.define(:version => 20150810211547) do
     t.string   "img3_content_type"
     t.integer  "img3_file_size"
     t.datetime "img3_updated_at"
+    t.boolean  "highlight",             :default => false, :null => false
+    t.integer  "order"
+    t.string   "resume"
   end
 
   create_table "categories", :force => true do |t|
@@ -82,6 +85,8 @@ ActiveRecord::Schema.define(:version => 20150810211547) do
     t.boolean  "published",  :default => true, :null => false
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
+    t.string   "surname"
+    t.string   "subject"
   end
 
   create_table "highlights", :force => true do |t|

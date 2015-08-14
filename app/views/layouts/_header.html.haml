@@ -6,7 +6,9 @@
       .col-sm-8
         .row
           .col-sm-9
-            %input.form-control{:type => "text", :placeholder => "Pesquisar por"}
+            = form_tag(search_homes_path, :method => :get, :id=> "search_prod_form") do
+              =text_field_tag 'search_param', nil, :class=>"form-control",:placeholder=>"Pesquisar por"
+            /%input.form-control{:type => "text", :placeholder => "Pesquisar por"}
           .col-sm-3.pull-right
             %a.sprite.fb-square{:href=>"http://www.facebook.com.br", :target => "_blank"} Facebook
             %a.sprite.ig-square{:href=>"http://www.facebook.com.br", :target => "_blank"} Instagram
@@ -40,17 +42,20 @@
                 %a{:href => "/"}
                   %i.glyphicon.glyphicon-home.white
 
+              /%li
+              /  =link_to "a empresa", about_us_path
               %li
-                =link_to "a empresa", about_us_path
-              
+                =link_to @impressao.title, service_path(@impressao.id)
               -@header_categories.each do |category|
                 -if category.children.exists?
                   %li.dropdown
                     =link_to services_path(:category=>"#{category.id}"), :class=>"dorpdown-toggle", "aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button" do
                       =category.title
                       %span.caret
-                      
                     %ul.dropdown-menu
+                      -if category.services.exists
+                        -category.services.each do |service|
+                          %li=link_to service.title, service_path(service.id, :category=>category.id)  
                       - category.children.each do |c|     
                         - if c.services.exists?
                           %li.dropdown
@@ -60,7 +65,7 @@
                             %ul.dropdown-menu.dropdown-menu-right
                               - c.services.each do |s|
                                 %li
-                                  %a{:href => "/services/1"}=s.title
+                                  =link_to s.title, service_path(s.id, :category=>c.id)
                 -else
                   -if category.services.exists?
                     %li.dropdown

@@ -1,0 +1,51 @@
+%section.interna
+  .container-fluid
+    .row
+      .container
+        .row
+          %h1= "resultados da busca"
+          
+  .container
+    -c=0
+    -@services.each do |service|
+      .row
+        .col-sm-12
+          %h2= link_to service.title, service_path(service.id, :category=>service.categories.first.id)
+          -if !@service_images[c].nil?
+            -@service_images[c].each do |image|
+              .col-sm-4
+                =image_tag(image.img_service.url(:list), :class => "img-responsive") if image.img_service.file?
+      .row.description
+        .col-sm-12
+          %h3= service.subtitle
+          %p
+            =service.description
+      -c+=1    
+          
+%section.interna
+  .container-fluid
+    .row
+      .container
+        .row
+          %h1 nossos trabalhos
+          
+%section.cases
+  .container
+    -class_changer=1
+    -cclass="shadow-left"
+    -row="<div class='row'>"
+    -@cases.each do |caso|
+      =raw(row)
+      .col-sm-6
+        %h3= caso.title
+        =image_tag(caso.main_img.url(:to_home), :class => "img-responsive #{cclass}")
+        =link_to caso.resume, case_path(caso.id)
+      -if class_changer % 2 == 0 || @cases.count==class_changer
+        -cclass="shadow-left"
+        -row=""
+        =raw('</div>') 
+      -else
+        -cclass="shadow-right"
+        -row="<div class='row'>"
+      -class_changer+=1
+= render :file => "layouts/_services_box.html.haml"

@@ -3,7 +3,7 @@
     .row
       .container
         .row
-          %h1=@category.title
+          %h1=@category.title if @service.categories.exists?
           
   .container
     .row

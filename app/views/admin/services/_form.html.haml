@@ -20,10 +20,7 @@
       = f.check_box :published     
     .form-group
       %strong Categoria:
-      =f.select(:category_ids, @categorias.collect {|category| [ category.title, category.id ] })
-    .form-group
-      = f.label :service_img
-      = f.file_field :service_img, :class => "form-control"  
+      =f.select(:category_ids, @categories.collect {|category| [ category.title, category.id ] }, {:include_blank=>"Nenhuma"})
     - if @service.service_img.file?
       .form-group
         =image_tag(@service.service_img.url)
