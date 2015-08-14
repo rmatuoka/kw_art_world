@@ -24,7 +24,7 @@
       .row.description
         .col-sm-12
           %h3= @service.subtitle
-          %p= @service.description
+          %p= raw(@service.description)
           
 = render :file => "layouts/_services_box.html.haml"
 

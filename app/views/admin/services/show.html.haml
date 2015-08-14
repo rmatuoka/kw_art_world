@@ -21,7 +21,7 @@
           %p
             %strong= "#{t('activerecord.attributes.service.description')}:"
             %br
-            = @service.description
+            = raw(@service.description)
         .box-body
           %p
             %strong= "#{t('activerecord.attributes.service.published')}:"
