@@ -15,7 +15,7 @@
       = f.text_field :subtitle, :class => "form-control", :placeholder => t("activerecord.attributes.category.title")
     .form-group 
       = f.label :description
-      = f.text_area :description, :class => "form-control", :placeholder => t("activerecord.attributes.category.description")  
+      = f.text_area :description, :class => "form-control tinymce", :placeholder => t("activerecord.attributes.category.description")  
     .form-group 
       = f.label :published
       = f.check_box :published, :class => "form-control", :placeholder => t("activerecord.attributes.category.published")     
@@ -31,4 +31,5 @@
         =image_tag(@subcategory.image_category.url)
   .box-footer
     =f.submit nil, :class => "btn btn-primary" 
-
+-content_for :footer do
+  = tinymce   

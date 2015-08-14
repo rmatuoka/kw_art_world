@@ -11,7 +11,7 @@
       = f.text_field :title, :class => "form-control", :placeholder => t("activerecord.attributes.service.title")
     .form-group  
       = f.label :description 
-      = f.text_area :description, :class => "form-control", :placeholder => t("activerecord.attributes.service.title")   
+      = f.text_area :description, :class => "form-control tinymce", :placeholder => t("activerecord.attributes.service.title")   
     .form-group
       = f.label :highlight
       = f.check_box :highlight
@@ -28,3 +28,6 @@
       
   .box-footer
     =f.submit nil, :class => "btn btn-primary"
+    
+-content_for :footer do
+  = tinymce   

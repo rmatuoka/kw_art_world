@@ -17,7 +17,7 @@
     .form-group
       = f.label :resume
       %br
-      = f.text_area :resume, :class => "form-control", :placeholder => t("activerecord.attributes.case.resume"), :rows=>2
+      = f.text_area :resume, :class => "form-control tinymce", :placeholder => t("activerecord.attributes.case.resume"), :rows=>2
     .form-group
       = f.label :description
       %br
@@ -45,6 +45,7 @@
     
     
 -content_for(:footer) do
+  = tinymce   
   :javascript
     $("#destaque").on("ifChecked", function(){
       $("#hide-show").show();
