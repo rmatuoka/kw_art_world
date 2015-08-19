@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :load_categories
   
   def load_categories
-    @header_categories=Category.includes([:children, :services]).where("categories.father_id IS NULL").all_published("categories.crated_at LIMIT 6")
+    @header_categories=Category.includes([:children, :services]).where("categories.father_id IS NULL").all_published("categories.created_at LIMIT 6")
     @impressao=Service.where("title = 'Impressão Digital' or title = 'impressao digital' or title = 'IMPRESSÃO DIGITAL' or title = 
                'Impressão Digital' or title =  'impressao digital' or title =   'IMPRESSÃO DIGITAL' or title = 
               'Impressão Digital'  or title =  'impressao digital'  or title =  'IMPRESSÃO DIGITAL'  or title = 
