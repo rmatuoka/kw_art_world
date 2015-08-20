@@ -4,7 +4,7 @@
 %section.highlight
   .container-fluid
     .row
-      .col-sm-12.background.cycle-slideshow{"data-cycle-fx"=>"scrollHorz"}
+      .col-sm-12.background.cycle-slideshow{"data-cycle-fx"=>"scrollHorz", "data-cycle-slides"=>"> a"}
         -@highlights.each do |h|
           =link_to image_tag(h.image_highlight.url, :class =>"img-responsive"), h.link, :target=>"_blank"
 
