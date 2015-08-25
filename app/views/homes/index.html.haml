@@ -29,7 +29,7 @@
       .col-sm-6
         %h3= caso.title
         =image_tag(caso.main_img.url(:to_home), :class => "img-responsive #{cclass}")
-        =link_to caso.resume, case_path(caso.id)
+        =link_to raw(caso.resume), case_path(caso.id)
       -if class_changer % 2 == 0 || @cases.count==class_changer
         -cclass="shadow-left"
         -row=""

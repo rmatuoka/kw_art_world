@@ -4,7 +4,7 @@ class Admin::ContactsController < ApplicationController
   end 
   layout "admin"  
   def index
-    @contacts = Contact.all_active("id DESC")
+    @contacts = Contact.all
   end
 
   def show

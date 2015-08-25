@@ -5,17 +5,17 @@
         %a.sprite.logo{:href=>"/"} ArtWorld
       .col-sm-8
         .row
-          .col-sm-9
+          .col-sm-9.pull-right
             = form_tag(search_homes_path, :method => :get, :id=> "search_prod_form") do
               =text_field_tag 'search_param', nil, :class=>"form-control",:placeholder=>"Pesquisar por"
             /%input.form-control{:type => "text", :placeholder => "Pesquisar por"}
           .col-sm-3.pull-right
-            %a.sprite.fb-square{:href=>"http://www.facebook.com.br", :target => "_blank"} Facebook
-            %a.sprite.ig-square{:href=>"http://www.facebook.com.br", :target => "_blank"} Instagram
-            %a.sprite.tw-square{:href=>"http://www.facebook.com.br", :target => "_blank"} Twitter
+            /%a.sprite.fb-square{:href=>"http://www.facebook.com.br", :target => "_blank"} Facebook
+            /%a.sprite.ig-square{:href=>"http://www.facebook.com.br", :target => "_blank"} Instagram
+            /%a.sprite.tw-square{:href=>"http://www.facebook.com.br", :target => "_blank"} Twitter
             
         .row.header-info
-          .col-sm-9.text-center
+          .col-sm-offset-2.col-sm-7.text-center
             %p Exemplo:  serviços, materiais, cores, clientes atendidos
             
           .col-sm-3.pull-right
@@ -47,25 +47,33 @@
               %li
                 =link_to @impressao.title, service_path(@impressao.id)
               -@header_categories.each do |category|
-                -if category.children.exists?
+                -if category.children.all_published.count>0
                   %li.dropdown
                     =link_to services_path(:category=>"#{category.id}"), :class=>"dorpdown-toggle", "aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button" do
+                      -puts "==================================#{category.title}"
                       =category.title
                       %span.caret
                     %ul.dropdown-menu
-                      -if category.services.exists
+                      -puts "BEGIN CAT SERVICES"
+                      -if category.services.all_published.count>0
+                        -puts "ENTERED CAT SERVICES"
                         -category.services.each do |service|
+                          -puts "ITERATING CAT SERVICES"
                           %li=link_to service.title, service_path(service.id, :category=>category.id)  
-                      - category.children.each do |c|     
-                        - if c.services.exists?
+                      -puts "ENTERING CAT_CHILDREN"
+                      -puts category.inspect
+                      -puts "CHILDREN=> #{category.children}"
+                      - category.children.all_published.each do |cat_child|
+                        -puts "ITERATING CAT_CHILDREN"
+                        - if cat_child.services.all_published.count>0
                           %li.dropdown
-                            =link_to services_path(:category=>"#{category.id}"), :class=>"dorpdown-toggle", "aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button" do
-                              =c.title
+                            =link_to services_path(:category=>"#{cat_child.id}"), :class=>"dorpdown-toggle", "aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button" do
+                              =cat_child.title
                               %span.caret
                             %ul.dropdown-menu.dropdown-menu-right
-                              - c.services.each do |s|
+                              - cat_child.services.each do |s|
                                 %li
-                                  =link_to s.title, service_path(s.id, :category=>c.id)
+                                  =link_to s.title, service_path(s.id, :category=>cat_child.id)
                 -else
                   -if category.services.exists?
                     %li.dropdown

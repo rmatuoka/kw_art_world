@@ -7,7 +7,7 @@ KwArtWorld::Application.routes.draw do
   resources :about_us, :only => [:index]
   resources :articles, :only => [:show]
   resources :contacts, :only => [:new, :show, :create]
-  resources (:homes, :only => [:index]){
+  resources (:homes) {
     collection do
       get "search"
     end
