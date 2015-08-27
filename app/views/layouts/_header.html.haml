@@ -50,28 +50,20 @@
                 -if category.children.all_published.count>0
                   %li.dropdown
                     =link_to services_path(:category=>"#{category.id}"), :class=>"dorpdown-toggle", "aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button" do
-                      -puts "==================================#{category.title}"
                       =category.title
                       %span.caret
                     %ul.dropdown-menu
-                      -puts "BEGIN CAT SERVICES"
                       -if category.services.all_published.count>0
-                        -puts "ENTERED CAT SERVICES"
-                        -category.services.each do |service|
-                          -puts "ITERATING CAT SERVICES"
+                        -category.services.all_published.each do |service|
                           %li=link_to service.title, service_path(service.id, :category=>category.id)  
-                      -puts "ENTERING CAT_CHILDREN"
-                      -puts category.inspect
-                      -puts "CHILDREN=> #{category.children}"
                       - category.children.all_published.each do |cat_child|
-                        -puts "ITERATING CAT_CHILDREN"
                         - if cat_child.services.all_published.count>0
                           %li.dropdown
                             =link_to services_path(:category=>"#{cat_child.id}"), :class=>"dorpdown-toggle", "aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button" do
                               =cat_child.title
                               %span.caret
                             %ul.dropdown-menu.dropdown-menu-right
-                              - cat_child.services.each do |s|
+                              - cat_child.services.all_published.each do |s|
                                 %li
                                   =link_to s.title, service_path(s.id, :category=>cat_child.id)
                 -else
