@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
-  attr_accessible :title, :description, :active, :published, :image_category, :father_id, :highlighted
+  attr_accessible :title, :description, :active, :published, :image_category, :father_id, :highlighted, :subtitle
   has_attached_file :image_category, :styles =>{
                                      :thumb=>"93x93>"
                                       }
