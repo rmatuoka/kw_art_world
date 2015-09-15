@@ -1,0 +1,35 @@
+%section.content-header
+  %h1
+    Materiais  
+    %small Painel de Controle
+  %ol.breadcrumb
+    %li
+      %a{:href => "/admin"}
+        %i.fa.fa-dashboard
+        Home
+    %li.active Materiais
+
+%section.content   
+  .row
+    / left column
+    .col-md-12
+      / general form elements
+      .box.box-primary
+        .box-header
+          %h3.box-title="#{@material.title}"
+        
+        .box-body  
+          %p
+            %strong Descrição
+            %br
+            = @material.description
+        .box-body  
+          %p
+            %strong Caracteísticas
+            %br
+            = @material.features
+        
+          
+  = link_to t("edit"), edit_admin_material_path(@material), :class => "btn btn-default"
+  = link_to t("back_list"), admin_materials_path, :class => "btn btn-default"
+  = link_to "Novo Material", new_admin_material_path, :class => "btn btn-primary"

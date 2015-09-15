@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150825192721) do
+ActiveRecord::Schema.define(:version => 20150915161644) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -51,6 +50,11 @@ ActiveRecord::Schema.define(:version => 20150825192721) do
     t.boolean  "highlight",             :default => false, :null => false
     t.integer  "order"
     t.string   "resume"
+  end
+
+  create_table "cases_materials", :id => false, :force => true do |t|
+    t.integer "case_id"
+    t.integer "material_id"
   end
 
   create_table "categories", :force => true do |t|
@@ -106,6 +110,14 @@ ActiveRecord::Schema.define(:version => 20150825192721) do
     t.string   "image_highlight_content_type"
     t.integer  "image_highlight_file_size"
     t.datetime "image_highlight_updated_at"
+  end
+
+  create_table "materials", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "features"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "roles", :force => true do |t|

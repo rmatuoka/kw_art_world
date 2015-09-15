@@ -29,6 +29,15 @@
     .form-group
       =f.label :highlight, "Destaque"
       =f.check_box :highlight, :id=>"destaque"
+      
+    .form-group
+      %label Selecione os materiais utilizados:
+      %br
+      - Material.all.each do |m|
+        = check_box_tag 'case[material_ids][]', m.id, @case.materials.include?(m)
+        = m.title
+      
+      
     .form-group#hide-show{:style=>"display:none"}
       =f.label :order
       =f.number_field :order, :class => "form-control"

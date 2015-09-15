@@ -1,0 +1,23 @@
+= form_for [:admin, @material] do |f|
+  -if f.error_messages
+    .alert.alert-danger.alert-dismissable
+      %i.fa.fa-ban
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+      %b Alert!
+      Confira os campos marcados em vermelho.
+  .box-body
+    .form-group
+      = f.label :title, "Nome"
+      = f.text_field :title, :class => "form-control"
+    .form-group
+      = f.label :description, "Descrição"
+      = f.text_area :description, :class => "form-control"
+    .form-group
+      = f.label :features, "Características"
+      = f.text_area :features, :class => "form-control tinymce"
+  .box-footer
+    = f.submit "Salvar", :class => "btn btn-primary"
+
+
+-content_for(:footer) do
+  = tinymce

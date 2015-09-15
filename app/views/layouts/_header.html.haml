@@ -10,9 +10,9 @@
               =text_field_tag 'search_param', nil, :class=>"form-control",:placeholder=>"Pesquisar por"
             /%input.form-control{:type => "text", :placeholder => "Pesquisar por"}
           .col-sm-3.pull-right
-            /%a.sprite.fb-square{:href=>"http://www.facebook.com.br", :target => "_blank"} Facebook
-            /%a.sprite.ig-square{:href=>"http://www.facebook.com.br", :target => "_blank"} Instagram
-            /%a.sprite.tw-square{:href=>"http://www.facebook.com.br", :target => "_blank"} Twitter
+            %a.sprite.fb-square{:href=>"https://www.facebook.com/artworldbrasil", :target => "_blank"} Facebook
+            %a.sprite.ig-square{:href=>"https://instagram.com/artworldoficial", :target => "_blank"} Instagram
+            %a.sprite.tw-square{:href=>"https://plus.google.com/102031615703025359323/about?hl=pt-BR", :target => "_blank"} Google +
             
         .row.header-info
           .col-sm-offset-2.col-sm-7.text-center
@@ -38,12 +38,12 @@
         %nav.navbar.menuprincipal.pull-right{:role => "navigation"}
           #menu-principal.collapse.navbar-collapse
             %ul.nav.navbar-nav
-              %li
-                %a{:href => "/"}
-                  %i.glyphicon.glyphicon-home.white
-
               /%li
-              /  =link_to "a empresa", about_us_path
+              /  %a{:href => "/"}
+              /    %i.glyphicon.glyphicon-home.white
+
+              %li
+                =link_to "a empresa", about_us_path
               %li
                 =link_to @impressao.title, service_path(@impressao.id)
               -@header_categories.each do |category|

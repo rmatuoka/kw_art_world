@@ -1,0 +1,32 @@
+%section.content-header
+  %h1
+    Materiais  
+    %small Painel de Controle
+  %ol.breadcrumb
+    %li
+      %a{:href => "/admin"}
+        %i.fa.fa-dashboard
+        Home
+    %li.active Materiais
+/ Main content
+%section.content
+  .col-xs-12
+    %p
+      = link_to "Novo Material", new_admin_material_path, :class => "btn btn-primary" 
+    .box
+      .box-header
+        %h3.box-title 
+          Materiais
+      .box-body.table-responsive.no-padding
+        %table.table.table-hover
+          %tr
+            %th Título
+            
+            %th= t("actions")
+          - for material in @materials
+            %tr
+              %td= material.title
+              %td
+                = link_to t("show"), [:admin, material], :class=>"btn btn-default"
+                = link_to t("edit"), edit_admin_material_path(material), :class=>"btn btn-default"
+                = link_to t("destroy"), [:admin, material], :confirm => 'Are you sure?', :method => :delete, :class=>"btn btn-danger"

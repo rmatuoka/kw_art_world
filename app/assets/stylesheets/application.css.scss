@@ -130,6 +130,28 @@ section.menu
 section.highlight
 {
   border-bottom:23px solid $preto;
+  
+  .next_prev
+  {
+    position:absolute;
+    top:40%;
+    z-index:90000;
+    
+    #next
+    {
+      cursor:pointer;
+      font-size:60px;
+      font-weight:700;
+    }
+    
+    #prev
+    {
+      font-weight:700;
+      cursor:pointer;
+      font-size:60px;
+    }
+  }
+  
 }
 
 section.services
@@ -237,7 +259,22 @@ footer
     padding-top:20px;
     border-top:13px solid #e7999b;
     background-color:#ce3236;
-  
+    
+    ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+        color:    #fff;
+    }
+    :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+       color:    #fff;
+       opacity:  1;
+    }
+    ::-moz-placeholder { /* Mozilla Firefox 19+ */
+       color:    #fff;
+       opacity:  1;
+    }
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+       color:    #fff;
+    }
+    
     p
     {
       font-size:12px;

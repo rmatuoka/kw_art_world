@@ -35,6 +35,14 @@
             = @case.description
         .box-body  
           %p
+            %strong Materiais utilizados
+            %br
+            %ul
+              -@case.materials.all.each do |m|
+                %li=m.title
+              
+        .box-body  
+          %p
             %strong= "#{t("activerecord.attributes.case.published")}:"
             %br
             = show_boolean(@case.published)

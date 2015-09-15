@@ -43,11 +43,16 @@
   height:50px;
   background-position:-290px -70px;
 }
+
 .sprite.fb-square
 {
   width:50px;
   height:47px;
   background-position:-281px 0px;
+}
+.sprite.fb-square:hover
+{
+  background-position:0px -336px;
 }
 
 .sprite.ig-rounded
@@ -62,6 +67,10 @@
   height:47px;
   background-position:-332px 0px;
 }
+.sprite.ig-square:hover
+{
+  background-position:-51px -336px;
+}
 
 .sprite.tw-rounded
 {
@@ -74,6 +83,10 @@
   width:50px;
   height:47px;
   background-position:-384px 0px;
+}
+.sprite.tw-square:hover
+{
+  background-position:-103px -336px;
 }
 
 .sprite.tel-gray
@@ -109,6 +122,12 @@
   width:79px;
   height:75px;
   background-position:-117px -161px;
+}
+.sprite.industria
+{
+  width:81px;
+  height:75px;
+  background-position:-208px -248px;
 }
 .sprite.corte-laser
 {
