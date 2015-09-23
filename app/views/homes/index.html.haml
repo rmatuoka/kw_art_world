@@ -25,6 +25,8 @@
           
 %section.cases
   .container
+    .col-sm-12.text-center
+      %h1 Novidades
     -class_changer=1
     -cclass="shadow-left"
     -row="<div class='row'>"
@@ -47,17 +49,25 @@
 %section.customers
   .container
     .row
-      .col-sm-12.list
-        .row
-          .col-sm-2
-            =image_tag("/assets/clientes/boticario.jpg", :class => "img-responsive")
-          .col-sm-2
-            =image_tag("/assets/clientes/nautilus.jpg", :class => "img-responsive")                
-          .col-sm-2
-            =image_tag("/assets/clientes/colcci.jpg", :class => "img-responsive")
-          .col-sm-2
-            =image_tag("/assets/clientes/vivo.jpg", :class => "img-responsive")
-          .col-sm-2
-            =image_tag("/assets/clientes/volks.jpg", :class => "img-responsive")
-          .col-sm-2
-            =image_tag("/assets/clientes/porto.jpg", :class => "img-responsive")
+      .col-sm-12.text-center
+        %h1 clientes atendidos
+        
+      -if @customers  
+        .col-sm-12.list.owl-carrossel
+          -@customers.each do |c|
+            .item=image_tag(c.image.url)
+
+
+
+-content_for :footer do
+  :javascript
+    $(document).ready(function() {
+
+      $(".owl-carrossel").owlCarousel({
+          autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+          items : 5,
+          itemsDesktop : [1199,3],
+          itemsDesktopSmall : [979,3]
+      });
+    });

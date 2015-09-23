@@ -17,14 +17,22 @@
               .col-sm-12.imagem-principal
                 =image_tag(image.img_service.url(:default), :class => "img-responsive")
               -contador=1
+            
+              .col-sm-6.description
+                %h3= @service.subtitle
+                %p= raw(@service.description)
+              
+              -if @service.materials.all.count > 0
+                .col-sm-6
+                  %h3 Materiais Utilizados
+                  %ul.material-list
+                    -@service.materials.all.each do |m|
+                      %li=link_to "#{m.title}", material_path(m), :class => "materiais", "data-fancybox-type" =>"iframe"
             -else
-              .col-sm-3
-                =link_to image_tag(image.img_service.url(:default), :class => "img-responsive"), image.img_service.url(:original), :id=>"img-#{image.id}", :class=>"gallery", :rel=>"svc-imgs"
+              .col-sm-3.imagem-galeria
+                =link_to image_tag(image.img_service.url(:default), :class => "img-responsive"), image.img_service.url(:original), :id=>"img-#{image.id}", :class=>"gallery", :rel=>"svc-imgs", :title => "#{image.title}"
           
-      .row.description
-        .col-sm-12
-          %h3= @service.subtitle
-          %p= raw(@service.description)
+      
           
 = render :file => "layouts/_services_box.html.haml"
 
@@ -34,6 +42,14 @@
     $(document).ready(function() {
 
       $("a.gallery").fancybox({
+        'transitionIn'	:	'elastic',
+        'transitionOut'	:	'elastic',
+        'speedIn'		:	600, 
+        'speedOut'		:	200, 
+        'overlayShow'	:	false
+      });
+      
+      $(".materiais").fancybox({
         'transitionIn'	:	'elastic',
         'transitionOut'	:	'elastic',
         'speedIn'		:	600, 

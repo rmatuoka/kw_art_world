@@ -17,6 +17,8 @@ KwArtWorld::Application.routes.draw do
   resources :categories, :only => [:index, :show]
   
   namespace(:admin){
+    resources :abouts
+    resources :customers
     resources :materials
     resources (:services){
       resources :service_images

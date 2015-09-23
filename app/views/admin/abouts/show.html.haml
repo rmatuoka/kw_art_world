@@ -1,0 +1,75 @@
+%section.content-header
+  %h1
+    Empresa
+    %small Painel de Controle
+  %ol.breadcrumb
+    %li
+      %a{:href => "/admin"}
+        %i.fa.fa-dashboard
+        Home
+    %li.active Empresa
+
+%section.content   
+  .row
+    / left column
+    .col-md-12
+      / general form elements
+      .box.box-primary
+        .box-header
+          %h3.box-title="Empresa"
+        
+        .box-body  
+          %p
+            %strong= "Quem Somos:"
+            %br
+            = @about.text1
+        .box-body  
+          %p
+            %strong= "Nossa Missão:"
+            %br
+            = @about.text2
+        .box-body  
+          %p
+            %strong= "Nossa Visão:"
+            %br
+            = @about.text3
+        .box-body  
+          %p
+            %strong Imagem 1
+            %br
+            =image_tag(@about.image1.url)
+            
+        .box-body  
+          %p
+            %strong Imagem 2
+            %br
+            =image_tag(@about.image2.url)
+            
+        .box-body  
+          %p
+            %strong Imagem 3
+            %br
+            =image_tag(@about.image3.url)
+            
+        .box-body  
+          %p
+            %strong Imagem 4
+            %br
+            =image_tag(@about.image4.url)
+
+        .box-body  
+          %p
+            %strong Imagem 5
+            %br
+            =image_tag(@about.image5.url)
+
+        .box-body  
+          %p
+            %strong Imagem 6
+            %br
+            =image_tag(@about.image6.url)
+              
+        
+          
+  = link_to t("edit"), edit_admin_about_path(@about), :class => "btn btn-default"
+

@@ -29,9 +29,9 @@
               =form_for Contact.new, :method=>:post, :remote=>true do |f|
                 =f.text_field :name, :class=>"form-control", :placeholder=>"Nome"
                 =f.text_field :surname, :class=>"form-control", :placeholder=>"Sobrenome"
-                =f.text_field :email, :class=>"form-control", :placeholder=>"e-mail"
-                =f.text_field :subject, :class=>"form-control", :placeholder=>"assunto"
-                =f.text_area :message, :class=>"form-control", :placeholder=>"mensagem", :type=>"text", :rows=>2
+                =f.text_field :email, :class=>"form-control", :placeholder=>"E-mail"
+                =f.text_field :subject, :class=>"form-control", :placeholder=>"Assunto"
+                =f.text_area :message, :class=>"form-control", :placeholder=>"Mensagem", :type=>"text", :rows=>2
                 =f.submit "Enviar", :class=>"submit pull-right"
             .col-sm-6
               .fb-page{"data-adapt-container-width" => "true", "data-hide-cover" => "true", "data-href" => "https://www.facebook.com/artworldbrasil", "data-show-facepile" => "true", "data-show-posts" => "false", "data-small-header" => "false"}
@@ -45,7 +45,7 @@
                 %span.sprite.phone-rounded
                 11 4412 4455
               
-            .col-sm-6.col-xs-6.text-right
+            .col-sm-6.col-xs-6.text-center
               %a.sprite.fb-rounded{:href => "https://www.facebook.com/artworldbrasil", :target=>"_blank"}
               %a.sprite.tw-rounded{:href => "https://plus.google.com/102031615703025359323/about?hl=pt-BR", :target=>"_blank"}
               %a.sprite.ig-rounded{:href => "https://instagram.com/artworldoficial", :target=>"_blank"}

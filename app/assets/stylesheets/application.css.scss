@@ -233,6 +233,14 @@ section.cases
 {
   margin:60px 0px;
 
+  h1
+  {
+    font-size:30px;
+    font-weight:700;
+    text-transform:uppercase;
+    color:$cinzaE;
+  }
+  
   h3
   {
     font-size:30px;
@@ -353,11 +361,11 @@ footer
 /*INTERNA TEMPLATE*/
 section.interna
 {
-  margin-top:100px;
+  margin-top:30px;
   
   h1
   {
-    font-size:53px;
+    font-size:43px;
     font-weight:700;
     text-transform:uppercase;
     color:$preto;
@@ -375,18 +383,36 @@ section.interna
   .container-fluid
   {
     border-bottom:3px solid $preto;
-    margin-bottom:70px;
+    margin-bottom:20px;
   }
   
   .imagem-principal
   {
-    margin-bottom:80px;
+    margin-bottom:30px;
+  }
+  
+  .imagem-galeria
+  {
+    margin-bottom:25px;
+  }
+  
+  .material-list
+  {
+    li
+    {
+      list-style-type:none;
+
+      a
+      {
+        color:#000;
+      }
+    }
   }
   
   .description
   {
-    margin-top:80px;
-    margin-bottom:80px;
+    margin-top:0px;
+    margin-bottom:30px;
     h3
     {
       text-transform:uppercase;

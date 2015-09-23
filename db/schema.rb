@@ -10,7 +10,39 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150915161644) do
+ActiveRecord::Schema.define(:version => 20150923175340) do
+
+  create_table "abouts", :force => true do |t|
+    t.text     "text1"
+    t.text     "text2"
+    t.text     "text3"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "image1_file_name"
+    t.string   "image1_content_type"
+    t.integer  "image1_file_size"
+    t.datetime "image1_updated_at"
+    t.string   "image2_file_name"
+    t.string   "image2_content_type"
+    t.integer  "image2_file_size"
+    t.datetime "image2_updated_at"
+    t.string   "image3_file_name"
+    t.string   "image3_content_type"
+    t.integer  "image3_file_size"
+    t.datetime "image3_updated_at"
+    t.string   "image4_file_name"
+    t.string   "image4_content_type"
+    t.integer  "image4_file_size"
+    t.datetime "image4_updated_at"
+    t.string   "image5_file_name"
+    t.string   "image5_content_type"
+    t.integer  "image5_file_size"
+    t.datetime "image5_updated_at"
+    t.string   "image6_file_name"
+    t.string   "image6_content_type"
+    t.integer  "image6_file_size"
+    t.datetime "image6_updated_at"
+  end
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -95,6 +127,18 @@ ActiveRecord::Schema.define(:version => 20150915161644) do
     t.string   "subject"
   end
 
+  create_table "customers", :force => true do |t|
+    t.string   "title"
+    t.boolean  "active",             :default => true
+    t.boolean  "published",          :default => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
   create_table "highlights", :force => true do |t|
     t.string   "title"
     t.string   "subtitle"
@@ -118,6 +162,11 @@ ActiveRecord::Schema.define(:version => 20150915161644) do
     t.text     "features"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "materials_services", :id => false, :force => true do |t|
+    t.integer "material_id"
+    t.integer "service_id"
   end
 
   create_table "roles", :force => true do |t|

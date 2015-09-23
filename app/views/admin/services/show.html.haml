@@ -29,6 +29,14 @@
         - if @service.service_img.file?
           .box-body
             %p=image_tag(@service.service_img.url)
+            
+        .box-body  
+          %p
+            %strong Materiais utilizados
+            %br
+            %ul
+              -@service.materials.all.each do |m|
+                %li=m.title
         .box-footer
           %p
             = link_to t('edit'), edit_admin_service_path(@service), :class => "btn btn-default"

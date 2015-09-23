@@ -25,6 +25,12 @@
       .form-group
         =image_tag(@service.service_img.url)
     
+    .form-group
+      %label Selecione os materiais utilizados:
+      %br
+      - Material.all.each do |m|
+        = check_box_tag 'service[material_ids][]', m.id, @service.materials.include?(m)
+        = m.title
       
   .box-footer
     =f.submit nil, :class => "btn btn-primary"

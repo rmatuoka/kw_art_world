@@ -1,0 +1,75 @@
+= form_for [:admin, @about] do |f|
+  -if f.error_messages
+    .alert.alert-danger.alert-dismissable
+      %i.fa.fa-ban
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+      %b Alert!
+      Confira os campos marcados em vermelho.
+      
+      =f.error_messages
+  .box-body
+    .form-group
+      = f.label :text1, "Quem Somos"
+      = f.text_area :text1, :class => "form-control", :placeholder => "Quem Somos", :rows=>2
+    .form-group
+      = f.label :text2, "Nossa Missão"
+      = f.text_area :text2, :class => "form-control", :placeholder => "Nossa Missão", :rows=>2
+    .form-group
+      = f.label :text3, "Nossa Visão"
+      = f.text_area :text3, :class => "form-control", :placeholder => "Nossa Visão", :rows=>2
+      
+    .form-group
+      = f.label :image1, "Imagem 1"
+      = f.file_field :image1, :class => "form-control"
+      
+      -if @about.image1.file?
+        =image_tag(@about.image1.url)
+        %br
+      
+    .form-group
+      = f.label :image2, "Imagem 2"
+      = f.file_field :image2, :class => "form-control", :placeholder => "Imagem 2"
+      
+      -if @about.image2.file?
+        =image_tag(@about.image2.url)
+        %br
+      
+    .form-group
+      = f.label :image3, "Imagem 3"
+      = f.file_field :image3, :class => "form-control", :placeholder => "Imagem 3"
+      
+      -if @about.image3.file?
+        =image_tag(@about.image3.url)
+        %br
+      
+    .form-group
+      = f.label :image4, "Imagem 4"
+      = f.file_field :image4, :class => "form-control", :placeholder => "Imagem 4"
+      
+      -if @about.image4.file?
+        =image_tag(@about.image4.url)
+        %br
+
+    .form-group
+      = f.label :image5, "Imagem 5"
+      = f.file_field :image5, :class => "form-control", :placeholder => "Imagem 5"
+      
+      -if @about.image5.file?
+        =image_tag(@about.image5.url)
+        %br
+
+    .form-group
+      = f.label :image6, "Imagem 6"
+      = f.file_field :image6, :class => "form-control", :placeholder => "Imagem 6"
+      
+      -if @about.image6.file?
+        =image_tag(@about.image6.url)
+        %br
+        
+    
+      
+
+  .box-footer
+    = f.submit "Salvar", :class => "btn btn-primary"
+    
+    

@@ -1,11 +1,9 @@
 one:
   title: MyString
-  description: MyText
-  published: false
   active: false
+  published: false
 
 two:
   title: MyString
-  description: MyText
-  published: false
   active: false
+  published: false

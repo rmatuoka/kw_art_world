@@ -1,0 +1,31 @@
+= form_for [:admin, @customer] do |f|
+  -if f.error_messages
+    .alert.alert-danger.alert-dismissable
+      %i.fa.fa-ban
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+      %b Alert!
+      Confira os campos marcados em vermelho.
+  .box-body
+    .form-group
+      = f.label :title
+      = f.text_field :title, :class => "form-control", :placeholder => "Título"
+
+    .form-group
+      = f.label :image
+      = f.file_field :image
+      
+    .form-group
+      = f.label :published
+      = f.check_box :published
+      
+
+  .box-footer
+    = f.submit "Salvar", :class => "btn btn-primary"
+    
+    
+-content_for(:footer) do
+  = tinymce   
+
+
+
+

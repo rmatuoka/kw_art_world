@@ -1,0 +1,17 @@
+- title "Admin/Abouts"
+
+%table
+  %tr
+    %th Text1
+    %th Text2
+    %th Text3
+  - for about in @abouts
+    %tr
+      %td= about.text1
+      %td= about.text2
+      %td= about.text3
+      %td= link_to 'Show', [:admin, about]
+      %td= link_to 'Edit', edit_admin_about_path(about)
+      %td= link_to 'Destroy', [:admin, about], :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Admin/About", new_admin_about_path

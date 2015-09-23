@@ -8,48 +8,44 @@
   .container
     .row
       .col-sm-4
-        =image_tag("/assets/about_us/01.jpg", :class => "img-responsive", :style=>"max-height:202px")
+        =image_tag(@about.image1.url, :class => "img-responsive", :style=>"max-height:202px")
         
       .col-sm-4
-        =image_tag("/assets/about_us/02.jpg", :class => "img-responsive", :style=>"max-height:202px")
+        =image_tag(@about.image2.url, :class => "img-responsive", :style=>"max-height:202px")
         
       .col-sm-4
-        =image_tag("/assets/about_us/03.jpg", :class => "img-responsive")
+        =image_tag(@about.image3.url, :class => "img-responsive")
         
         
     .row.description
       .col-sm-12
         %h3 Quem somos
         %p
-          Após anos conhecendo melhor o mercado, nos especializamos em serviços de impressão digital.
-          Para campanhas promocionais, sinalização decorativa e indicativa, serviços de identificação Visual como letras em relevo, LED e revestimentos em ACM, projetos para PDV, Envelopamento de frotas e também linha para toldos e coberturas Residenciais e empresariais.
+          =@about.text1
           
     .row
       .col-sm-4
-        =image_tag("/assets/about_us/04.jpg", :class => "img-responsive")
+        =image_tag(@about.image4.url, :class => "img-responsive")
 
       .col-sm-4
-        =image_tag("/assets/about_us/05.jpg", :class => "img-responsive")
+        =image_tag(@about.image5.url, :class => "img-responsive")
 
       .col-sm-4
-        =image_tag("/assets/about_us/06.jpg", :class => "img-responsive")  
+        =image_tag(@about.image6.url, :class => "img-responsive")  
         
         
     .row.description
       .col-sm-12
         %h3 Nossa Missão
         %p
-          É garantir excelência na entrega de produtos e serviços, adequando nossos produtos conforme necessidade de nossos clientes;
+          =@about.text2
     
     
     .row.description
       .col-sm-12
         %h3 Nossa Visão
         %p
-          É ser uma empresa reconhecida e respeitada, com uma equipe extremamente qualificada e dedicada, através de nossa conduta, refletindo os mais altos padrões de ética.
-          O relacionamento com clientes e colaboradores deve
-          ser transparente e baseado na responsabilidade e
-          confiança entre as partes.
+          =@about.text3
     
           
 = render :file => "layouts/_services_box.html.haml"

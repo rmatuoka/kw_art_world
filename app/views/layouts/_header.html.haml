@@ -5,14 +5,16 @@
         %a.sprite.logo{:href=>"/"} ArtWorld
       .col-sm-8
         .row
-          .col-sm-9.pull-right
-            = form_tag(search_homes_path, :method => :get, :id=> "search_prod_form") do
-              =text_field_tag 'search_param', nil, :class=>"form-control",:placeholder=>"Pesquisar por"
-            /%input.form-control{:type => "text", :placeholder => "Pesquisar por"}
           .col-sm-3.pull-right
             %a.sprite.fb-square{:href=>"https://www.facebook.com/artworldbrasil", :target => "_blank"} Facebook
             %a.sprite.ig-square{:href=>"https://instagram.com/artworldoficial", :target => "_blank"} Instagram
             %a.sprite.tw-square{:href=>"https://plus.google.com/102031615703025359323/about?hl=pt-BR", :target => "_blank"} Google +
+            
+          .col-sm-9.pull-right
+            = form_tag(search_homes_path, :method => :get, :id=> "search_prod_form") do
+              =text_field_tag 'search_param', nil, :class=>"form-control",:placeholder=>"Pesquisar por"
+            /%input.form-control{:type => "text", :placeholder => "Pesquisar por"}
+          
             
         .row.header-info
           .col-sm-offset-2.col-sm-7.text-center
@@ -45,17 +47,18 @@
               %li
                 =link_to "a empresa", about_us_path
               %li
-                =link_to @impressao.title, service_path(@impressao.id)
+                =link_to @impressao.title, service_path(@impressao.url_slug)
+              
               -@header_categories.each do |category|
-                -if category.children.all_published.count>0
+                -if category.children.all_published.count > 0
                   %li.dropdown
                     =link_to services_path(:category=>"#{category.id}"), :class=>"dorpdown-toggle", "aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button" do
                       =category.title
                       %span.caret
                     %ul.dropdown-menu
-                      -if category.services.all_published.count>0
+                      -if category.services.all_published.count > 0
                         -category.services.all_published.each do |service|
-                          %li=link_to service.title, service_path(service.id, :category=>category.id)  
+                          %li=link_to service.title, service_path(service.url_slug)  
                       - category.children.all_published.each do |cat_child|
                         - if cat_child.services.all_published.count>0
                           %li.dropdown
@@ -65,7 +68,7 @@
                             %ul.dropdown-menu.dropdown-menu-right
                               - cat_child.services.all_published.each do |s|
                                 %li
-                                  =link_to s.title, service_path(s.id, :category=>cat_child.id)
+                                  =link_to s.title, service_path(s.url_slug)
                 -else
                   -if category.services.exists?
                     %li.dropdown
@@ -75,7 +78,7 @@
                       %ul.dropdown-menu
                         - category.services.each do |s|
                           %li
-                            %a{:href => "/services/1"}=s.title
+                            %a{:href => "#{service_path(s.url_slug)}"}=s.title
 
               
               
@@ -91,6 +94,6 @@
               /%li
               /  =link_to("mercado", "#");
               %li
-                =link_to("nossos trabalhos", "/cases");
+                =link_to("novidades", "/cases");
               /%li
               /  =link_to("contato", "#");
