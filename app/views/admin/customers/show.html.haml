@@ -23,6 +23,12 @@
             %strong= "Título:"
             %br
             = @customer.title
+            
+        .box-body  
+          %p
+            %strong= "Imagem"
+            %br
+            =image_tag(@customer.image.url(:front_pb))
         .box-body  
           %p
             %strong= "Publicado?"

@@ -55,7 +55,7 @@
       -if @customers  
         .col-sm-12.list.owl-carrossel
           -@customers.each do |c|
-            .item=image_tag(c.image.url)
+            .item=image_tag(c.image.url(:front_pb))
 
 
 
